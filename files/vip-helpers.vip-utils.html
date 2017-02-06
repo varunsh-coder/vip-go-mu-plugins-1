@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>WordPress.com VIP – VIP Go Function Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">WordPress.com VIP – VIP Go Function Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">143</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">77</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-200090202"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-200090202" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/VIP_Suspend_Cache_Invalidation.html">VIP_Suspend_Cache_Invalidation</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_CLI_Command.html">WPCOM_VIP_CLI_Command</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_Debug_Bar_DB_Connections.html">WPCOM_VIP_Debug_Bar_DB_Connections</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_Debug_Bar_Memcached.html">WPCOM_VIP_Debug_Bar_Memcached</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_Debug_Bar_PHP.html">WPCOM_VIP_Debug_Bar_PHP</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_Debug_Bar_Queries.html">WPCOM_VIP_Debug_Bar_Queries</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_Debug_Bar_Query_Summary.html">WPCOM_VIP_Debug_Bar_Query_Summary</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_Debug_Bar_Remote_Requests.html">WPCOM_VIP_Debug_Bar_Remote_Requests</a></li>
+                                                    <li class="class"><a href="../classes/WPCOM_VIP_QM_Collector_DB_Queries.html">WPCOM_VIP_QM_Collector_DB_Queries</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small>vip-helpers</small>vip-utils.php</h1>
+                    <p><em></em></p>
+                    
+
+                    
+                    
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                        
+                        
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+            
+                        <div class="row-fluid">
+                <section class="span8 content file">
+                    <h2>Functions</h2>
+                </section>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__wpcom_vip_call_on_hook_or_execute" name="method__wpcom_vip_call_on_hook_or_execute" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">_wpcom_vip_call_on_hook_or_execute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_wpcom_vip_call_on_hook_or_execute(\function  <span class="argument">$function</span>, string  <span class="argument">$hook</span>,   <span class="argument">$priority = 99</span>) </pre>
+                <p><em>Utility function to trigger a callback on a hook with priority or execute immediately if the hook has already been fired previously.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\function</td>
+                                <td>$function </td>
+                                <td><p>Callback to trigger.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$hook </td>
+                                <td><p>Hook name to trigger on.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$priority </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            private
+                        </th>
+                        <td>
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_themes_root" name="method_wpcom_vip_themes_root" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_themes_root()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_themes_root() : string</pre>
+                <p><em>Returns the raw path to the VIP themes dir.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_themes_root_uri" name="method_wpcom_vip_themes_root_uri" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_themes_root_uri()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_themes_root_uri() : string</pre>
+                <p><em>Returns the non-CDN URI to the VIP themes dir.</em></p>
+                <p>Sometimes enqueuing/inserting resources can trigger cross-domain errors when
+using the CDN, so this function allows bypassing the CDN to eradicate those
+unwanted errors.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>The URI</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_noncdn_uri" name="method_wpcom_vip_noncdn_uri" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_noncdn_uri()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_noncdn_uri(string  <span class="argument">$path</span>) : string</pre>
+                <p><em>Returns the non-CDN&#039;d URI to the specified path.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$path </td>
+                                <td><p>Must be a full path, e.g. dirname( <strong>FILE</strong> )</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_powered_wpcom_img_html" name="method_vip_powered_wpcom_img_html" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_powered_wpcom_img_html()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_powered_wpcom_img_html(integer  <span class="argument">$image</span>) : string</pre>
+                <p><em>Returns a link the WordPress.com VIP site wrapped around an image (the VIP logo).</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$image </td>
+                                <td><p>Which variant of the VIP logo to use; between 1-6.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>HTML</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_powered_wpcom" name="method_vip_powered_wpcom" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_powered_wpcom()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_powered_wpcom(string  <span class="argument">$display = &#039;text&#039;</span>, string  <span class="argument">$before_text = &#039;Powered by &#039;</span>) : string</pre>
+                <p><em>Returns the &quot;Powered by WordPress.com VIP&quot; widget&#039;s content.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$display </td>
+                                <td><p>Optional. Either: 1-6 or &quot;text&quot;*. If an integer, wrap an image in the VIP link. Otherwise, just return the link.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$before_text </td>
+                                <td><p>Optional. Text to go in front of the VIP link. Defaults to 'Powered by '.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>HTML</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://vip.wordpress.com/documentation/code-and-theme-review-process/"><span class="namespace-wrapper">Code Review</span></a></dd>
+                                            <dd><a href="http://vip.wordpress.com/documentation/powered-by-wordpress-com-vip/"><span class="namespace-wrapper">Powered By WordPress.com VIP</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_powered_wpcom_url" name="method_vip_powered_wpcom_url" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_powered_wpcom_url()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_powered_wpcom_url() : string</pre>
+                <p><em>Returns the URL to the WordPress.com VIP site</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_contrib_add_upload_cap" name="method_vip_contrib_add_upload_cap" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_contrib_add_upload_cap()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_contrib_add_upload_cap() </pre>
+                <p><em>Allows users of contributor role to be able to upload media.</em></p>
+                <p>Contrib users still can't publish.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://vip.wordpress.com/documentation/allow-contributors-to-upload-images/"><span class="namespace-wrapper">Allow Contributors to Upload Images</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>mdawaffe</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__vip_contrib_add_upload_cap" name="method__vip_contrib_add_upload_cap" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">_vip_contrib_add_upload_cap()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_vip_contrib_add_upload_cap() </pre>
+                <p><em>Helper function for vip_contrib_add_upload_cap() to change the user roles</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://vip.wordpress.com/documentation/allow-contributors-to-upload-images/"><span class="namespace-wrapper">Allow Contributors to Upload Images</span></a></dd>
+                                                                                                    <dd><a href="../namespaces/default.html#function_vip_contrib_add_upload_cap"><span class="namespace-wrapper">\vip_contrib_add_upload_cap()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_get_resized_attachment_url" name="method_wpcom_vip_get_resized_attachment_url" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_get_resized_attachment_url()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_get_resized_attachment_url(integer  <span class="argument">$attachment_id</span>, integer  <span class="argument">$width</span>, integer  <span class="argument">$height</span>, boolean  <span class="argument">$crop = false</span>) : string</pre>
+                <p><em>Returns a URL for a given attachment with the appropriate resizing querystring.</em></p>
+                <p>Typically, you should be using image sizes for handling this.</p>
+<p>However, this function can come in handy if you want a specific artibitrary or varying image size.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$attachment_id </td>
+                                <td><p>ID of the attachment</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$width </td>
+                                <td><p>Width of our resized image</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$height </td>
+                                <td><p>Height of our resized image</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$crop </td>
+                                <td><p>(optional) whether or not to crop the image</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>URL of the resized attachmen</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://vip.wordpress.com/documentation/image-resizing-and-cropping/"><span class="namespace-wrapper">http://vip.wordpress.com/documentation/image-resizing-and-cropping/</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_sharing_twitter_via" name="method_wpcom_vip_sharing_twitter_via" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_sharing_twitter_via()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_sharing_twitter_via(string  <span class="argument">$via = &#039;&#039;</span>) </pre>
+                <p><em>Allows you to customize the /via and follow recommendation for the WP.com Sharing Twitter button.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$via </td>
+                                <td><p>Optional. What the /via should be set to. Empty value disables the feature (the default).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_disable_post_flair" name="method_wpcom_vip_disable_post_flair" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_disable_post_flair()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_disable_post_flair() </pre>
+                <p><em>Disables Jetpack Post Flair entirely on the frontend.</em></p>
+                <p>This removes the filters and doesn't allow the stylesheet to be enqueued.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_disable_sharing" name="method_wpcom_vip_disable_sharing" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_disable_sharing()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_disable_sharing() </pre>
+                <p><em>Disables Jetpack Sharing in Posts and Pages.</em></p>
+                <p>Sharing can be disabled in the dashboard, by removing all buttons from Enabled Services.</p>
+<p>This function is primary for automating sharing when you have numerous sites to administer.
+It also assists having consistent CSS containers between development and production.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_disable_sharing_resources" name="method_wpcom_vip_disable_sharing_resources" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_disable_sharing_resources()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_disable_sharing_resources() </pre>
+                <p><em>Disable CSS and JS output for Jetpack Sharing.</em></p>
+                <p>Note: this disables things like smart buttons and share counts displayed alongside the buttons. Those will need to be handled manually if desired.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_enable_sharing" name="method_wpcom_vip_enable_sharing" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_enable_sharing()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_enable_sharing() </pre>
+                <p><em>Enables Jetpack Sharing in Posts and Pages.</em></p>
+                <p>This feature is on by default, so the function is only useful if you've also used wpcom_vip_disable_sharing().</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_enable_sharing_resources" name="method_wpcom_vip_enable_sharing_resources" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_enable_sharing_resources()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_enable_sharing_resources() </pre>
+                <p><em>Enable CSS and JS output for WPCOM sharing.</em></p>
+                <p>Note: if resources were disabled previously and this is called after wp_head, it may not work as expected.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_disable_likes" name="method_wpcom_vip_disable_likes" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_disable_likes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_disable_likes() </pre>
+                <p><em>Disables Jetpack Likes for Posts and Custom Post Types</em></p>
+                <p>Sharing can also be disabled from the Dashboard (Settings &gt; Sharing).</p>
+<p>This function is primarily for programmatic disabling of the feature, for example when working with custom post types.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_enable_likes" name="method_wpcom_vip_enable_likes" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_enable_likes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_enable_likes() </pre>
+                <p><em>Disables Jetpack Likes for Posts and Custom Post Types</em></p>
+                <p>This feature is on by default, so the function is only useful if you've also used wpcom_vip_disable_sharing().</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_remove_livechat" name="method_wpcom_vip_remove_livechat" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_remove_livechat()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_remove_livechat() </pre>
+                <p><em>Disables Olark live chat</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper">\show_live_chat()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_widont" name="method_widont" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">widont()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">widont(string  <span class="argument">$str = &#039;&#039;</span>) : string</pre>
+                <p><em>Eliminates widows in strings by replace the breaking space that appears before the last word with a non-breaking space.</em></p>
+                <p>This function is defined on WordPress.com and can be a common source of frustration for VIP devs.
+Now they can be frustrated in their local environments as well :)</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$str </td>
+                                <td><p>Optional. String to operate on.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://www.shauninman.com/post/heap/2006/08/22/widont_wordpress_plugin"><span class="namespace-wrapper">Typesetting widows</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wp_startswith" name="method_wp_startswith" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wp_startswith()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wp_startswith(  <span class="argument">$haystack</span>,   <span class="argument">$needle</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$haystack </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$needle </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wp_endswith" name="method_wp_endswith" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wp_endswith()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wp_endswith(  <span class="argument">$haystack</span>,   <span class="argument">$needle</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$haystack </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$needle </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wp_in" name="method_wp_in" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wp_in()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wp_in(  <span class="argument">$needle</span>,   <span class="argument">$haystack</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$needle </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$haystack </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_redirects" name="method_vip_redirects" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_redirects()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_redirects(array  <span class="argument">$vip_redirects_array = array()</span>, boolean  <span class="argument">$case_insensitive = false</span>) </pre>
+                <p><em>Simple 301 redirects</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$vip_redirects_array </td>
+                                <td><p>Optional. Elements should be in the form of '/old' =&gt; '<a href="http://wordpress.com/new/">http://wordpress.com/new/</a>'</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$case_insensitive </td>
+                                <td><p>Optional. Should the redirects be case sensitive? Defaults to false.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_substr_redirects" name="method_vip_substr_redirects" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_substr_redirects()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_substr_redirects(array  <span class="argument">$vip_redirects_array = array()</span>, boolean  <span class="argument">$append_old_uri = false</span>) </pre>
+                <p><em>Wildcard redirects based on the beginning of the request path.</em></p>
+                <p>This is basically an alternative to vip_regex_redirects() for when you only need to redirect /foo/bar/* to somewhere else.
+Using regex to do this simple check would add lots of overhead.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$vip_redirects_array </td>
+                                <td><p>Optional. Elements should be in the form of '/some-path/' =&gt; '<a href="http://wordpress.com/new/">http://wordpress.com/new/</a>'</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$append_old_uri </td>
+                                <td><p>Optional. If true, the full path past the match will be added to the new URL. Defaults to false.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_regex_redirects" name="method_vip_regex_redirects" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_regex_redirects()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_regex_redirects(array  <span class="argument">$vip_redirects_array = array()</span>, boolean  <span class="argument">$with_querystring = false</span>) </pre>
+                <p><em>Advanced 301 redirects using regex to match and redirect URLs.</em></p>
+                <p>Warning: Since regex is expensive and this will be run on every uncached pageload, you'll want to keep this small, lean, and mean.</p>
+<p>Some examples:</p>
+<p>Redirecting from /2011/12/dont-miss-it-make-live-holiday-giveaway.html (extra .html at the end)
+'|/([0-9]{4})/([0-9]{2})/([0-9]{2})/([^/]+).html|' =&gt; '|/$1/$2/$3/$4/|'</p>
+<p>Redirecting from /archive/2011/12/dont-miss-it-make-live-holiday-giveaway
+'|/archive/([0-9]{4})/([0-9]{2})/([^/]+)/?|' =&gt; '|/$3/|' // since we don't have the day, we should just send to /%postname% then WordPress can redirect from there</p>
+<p>Redirecting from /tax-tips/how-to-get-a-tax-break-for-summer-child-care/04152011-6163 (/%category%/%postname%/%month%%day%%year%-%post_id%)
+'|/([^/]+)\/([^/]+)/([0-9]{1,2})([0-9]{1,2})([0-9]{4})-([0-9]{1,})/?|' =&gt; '|/$5/$3/$4/$2/|'</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$vip_redirects_array </td>
+                                <td><p>Optional. Array of key/value pairs to redirect from/to.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$with_querystring </td>
+                                <td><p>Optional. Set this to true if your redirect string is in the format of an absolute URL. Defaults to false (just the path).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_file_get_contents" name="method_wpcom_vip_file_get_contents" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_file_get_contents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_file_get_contents(string  <span class="argument">$url</span>, integer  <span class="argument">$timeout = 3</span>, integer  <span class="argument">$cache_time = 900</span>, array  <span class="argument">$extra_args = array()</span>) : string</pre>
+                <p><em>Fetch a remote URL and cache the result for a certain period of time.</em></p>
+                <p>This function originally used file_get_contents(), hence the function name.
+While it no longer does, it still operates the same as the basic PHP function.</p>
+<p>We strongly recommend not using a $timeout value of more than 3 seconds as this
+function makes blocking requests (stops page generation and waits for the response).</p>
+<p>The $extra_args are:</p>
+<ul>
+<li>obey_cache_control_header: uses the &quot;cache-control&quot; &quot;max-age&quot; value if greater than $cache_time.</li>
+<li>http_api_args: see <a href="http://codex.wordpress.org/Function_API/wp_remote_get">http://codex.wordpress.org/Function_API/wp_remote_get</a></li>
+</ul>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$url </td>
+                                <td><p>URL to fetch</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$timeout </td>
+                                <td><p>Optional. The timeout limit in seconds; valid values are 1-10. Defaults to 3.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$cache_time </td>
+                                <td><p>Optional. The minimum cache time in seconds. Valid values are &gt;= 60. Defaults to 900.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$extra_args </td>
+                                <td><p>Optional. Advanced arguments: &quot;obey_cache_control_header&quot; and &quot;http_api_args&quot;.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>The remote file's contents (cached)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://lobby.vip.wordpress.com/best-practices/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_main_feed_redirect" name="method_vip_main_feed_redirect" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_main_feed_redirect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_main_feed_redirect(string  <span class="argument">$target</span>) </pre>
+                <p><em>Redirect http://blog.wordpress.com/feed/ to $target URL</em></p>
+                <p>Don't redirect if a feed service user agent, because that could result in a loop.</p>
+<p>This can be executed before WP init because it checks the URI directly to see if the main feed is being requested.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$target </td>
+                                <td><p>URL to direct feed services to</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://vip.wordpress.com/documentation/redirect-the-feed-to-feedburner/"><span class="namespace-wrapper">Redirect the Feed To Feedburner</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>lloydbudd</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_is_main_feed_requested" name="method_wpcom_vip_is_main_feed_requested" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_is_main_feed_requested()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_is_main_feed_requested() : boolean</pre>
+                <p><em>Returns if any of the formats of the main feed are requested</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Returns true if main feed is requested</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>lloydbudd</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_is_feedservice_ua" name="method_wpcom_vip_is_feedservice_ua" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_is_feedservice_ua()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_is_feedservice_ua() : boolean</pre>
+                <p><em>Returns if the current visitor has a feed service user agent</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Returns true if the current visitor has a feed service user agent.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>lloydbudd</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_crossdomain_redirect" name="method_vip_crossdomain_redirect" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_crossdomain_redirect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_crossdomain_redirect() </pre>
+                <p><em>Responds to a blog.wordpress.com/crossdomain.xml request with the contents of a crossdomain.xml file located in the root of your theme.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>lloydbudd</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__vip_crossdomain_redirect" name="method__vip_crossdomain_redirect" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">_vip_crossdomain_redirect()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_vip_crossdomain_redirect() </pre>
+                <p><em>Helper function for vip_crossdomain_redirect(); serves up /vip/your_theme/crossdomain.xml</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="../namespaces/default.html#function_vip_crossdomain_redirect"><span class="namespace-wrapper">\vip_crossdomain_redirect()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_get_random_posts" name="method_vip_get_random_posts" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_get_random_posts()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_get_random_posts(integer  <span class="argument">$number = 1</span>, string  <span class="argument">$post_type = &#039;post&#039;</span>, boolean  <span class="argument">$return_ids = false</span>) : array</pre>
+                <p><em>Get random posts; a simple, more efficient approach.</em></p>
+                <p>.</p>
+<p>MySQL queries that use ORDER BY RAND() can be pretty challenging and slow on large datasets.
+This function is an alternative method for getting random posts, though it's not as good but at least it won't destroy your site :).</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$number </td>
+                                <td><p>Optional. Amount of random posts to get. Default 1.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$post_type </td>
+                                <td><p>Optional. Specify the post_type to use when randomizing posts. Default 'post'.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$return_ids </td>
+                                <td><p>Optional. To just get the IDs, set this to true, otherwise post objects are returned (the default).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_safe_wp_remote_get" name="method_vip_safe_wp_remote_get" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_safe_wp_remote_get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_safe_wp_remote_get(string  <span class="argument">$url</span>, string  <span class="argument">$fallback_value = &#039;&#039;</span>, integer  <span class="argument">$threshold = 3</span>, integer  <span class="argument">$timeout = 1</span>, integer  <span class="argument">$retry = 20</span>,   <span class="argument">$args = array()</span>) : string|\WP_Error|array</pre>
+                <p><em>This is a sophisticated extended version of wp_remote_get(). It is designed to more gracefully handle failure than wpcom_vip_file_get_contents() does.</em></p>
+                <p>Note that like wp_remote_get(), this function does not cache.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$url </td>
+                                <td><p>URL to fetch</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$fallback_value </td>
+                                <td><p>Optional. Set a fallback value to be returned if the external request fails.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$threshold </td>
+                                <td><p>Optional. The number of fails required before subsequent requests automatically return the fallback value. Defaults to 3, with a maximum of 10.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$timeout </td>
+                                <td><p>Optional. Number of seconds before the request times out. Valid values 1-3; defaults to 1.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$retry </td>
+                                <td><p>Optional. Number of seconds before resetting the fail counter and the number of seconds to delay making new requests after the fail threshold is reached. Defaults to 20, with a minimum of 10.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string|\WP_Error|array
+                                            &mdash; <p>Array of results. If fail counter is met, returns the $fallback_value, otherwise return WP_Error.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://vip.wordpress.com/documentation/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
+                                                                                                    <dd><a href=""><span class="namespace-wrapper">\wp_remote_get()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            author
+                        </th>
+                        <td>
+                                                                                            <p>tottdev</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_get_user_profile" name="method_wpcom_vip_get_user_profile" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_get_user_profile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_get_user_profile(string|integer  <span class="argument">$email_or_id</span>) : false|array</pre>
+                <p><em>Returns profile information for a WordPress/Gravatar user</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|integer</td>
+                                <td>$email_or_id </td>
+                                <td><p>Email, ID, or username for user to lookup</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    false|array
+                                            &mdash; <p>Profile info formatted as noted here: <a href="http://en.gravatar.com/site/implement/profiles/php/">http://en.gravatar.com/site/implement/profiles/php/</a>. If user not found, returns false.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_email_has_gravatar" name="method_wpcom_vip_email_has_gravatar" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_email_has_gravatar()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_email_has_gravatar(string  <span class="argument">$email</span>) : boolean</pre>
+                <p><em>Checks to see if a given e-mail address has a Gravatar or not.</em></p>
+                <p>You can use this function to only call get_avatar() when the user has a Gravatar and display nothing (rather than a placeholder image) when they don't.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$email </td>
+                                <td><p>Email to check for a gravatar</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Returns true if $email has a gravatar</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_is_valid_domain" name="method_wpcom_vip_is_valid_domain" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_is_valid_domain()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_is_valid_domain(string  <span class="argument">$url</span>, array  <span class="argument">$whitelisted_domains</span>) : boolean</pre>
+                <p><em>Check if a URL is in a specified whitelist</em></p>
+                <p>Example whitelist: array( 'mydomain.com', 'mydomain.net' )</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$url </td>
+                                <td><p>URL to check for</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$whitelisted_domains </td>
+                                <td><p>Array of whitelisted domains</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>Returns true if $url is in the $whitelisted_domains</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_bulk_user_management_whitelist" name="method_wpcom_vip_bulk_user_management_whitelist" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_bulk_user_management_whitelist()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_bulk_user_management_whitelist(array  <span class="argument">$users</span>) </pre>
+                <p><em>Helper function to enable bulk user management on a per-user basis</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$users </td>
+                                <td><p>Array of user logins</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_wp_oembed_get" name="method_wpcom_vip_wp_oembed_get" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_wp_oembed_get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_wp_oembed_get(string  <span class="argument">$url</span>, array  <span class="argument">$args = array()</span>) : string</pre>
+                <p><em>A version of wp_oembed_get() that provides caching.</em></p>
+                <p>Note that if you're using this within the contents of a post, it's probably better to use the existing
+WordPress functionality: <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>. This helper function is more meant for other
+places, such as sidebars.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$url </td>
+                                <td><p>The URL that should be embedded</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$args </td>
+                                <td><p>Addtional arguments and parameters the embed</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_load_plugin" name="method_wpcom_vip_load_plugin" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_load_plugin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_load_plugin(string  <span class="argument">$plugin = false</span>, string  <span class="argument">$folder = false</span>,   <span class="argument">$load_release_candidate_not_used = null</span>) : boolean</pre>
+                <p><em>Loads a plugin out of our shared plugins directory.</em></p>
+                <p>Note - This function does not trigger plugin activation / deactivation hooks.
+As such, it may not be compatible with all plugins</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$plugin </td>
+                                <td><p>Optional. Plugin folder name of the plugin, or the folder and
+plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-plugins folder, or WP_PLUGIN_DIR</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$folder </td>
+                                <td><p>Subdirectory of WP_PLUGIN_DIR to load plugin from</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$load_release_candidate_not_used </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>True if the include was successful</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://lobby.vip.wordpress.com/plugins/"><span class="namespace-wrapper">VIP Shared Plugins</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__wpcom_vip_include_plugin" name="method__wpcom_vip_include_plugin" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">_wpcom_vip_include_plugin()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_wpcom_vip_include_plugin(  <span class="argument">$file</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$file </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_is_automattician" name="method_is_automattician" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">is_automattician()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">is_automattician(integer  <span class="argument">$user_id = false</span>) : boolean</pre>
+                <p><em>Is the given user an Automattician?</em></p>
+                <p>This does a relatively weak check that the user has an Automattic email address, and that
+they have verified that email address. It's possible to fake that data (it's just user meta
+and user_email), so don't use this for protecting sensitive info or performing
+sensitive tasks.</p>
+<p>This does NOT guarantee the current user is proxied. Use is_proxied_automattician()
+for that.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$user_id </td>
+                                <td><p>A WP User id</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>True, if user is an Automattician, otherwise false</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper">\is_proxied_automattician</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_is_proxied_automattician" name="method_is_proxied_automattician" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">is_proxied_automattician()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">is_proxied_automattician() : boolean</pre>
+                <p><em>Is the current user an Automattician, authenticated via the Automattic proxy.</em></p>
+                <p>Determine if the current request is made via the Automattic proxy,
+which is only available to Automatticians, AND if the current user
+is an Automattician.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>True, if the current request is made via the Automattic proxy</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper">\is_automattician</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_disable_new_relic_js" name="method_wpcom_vip_disable_new_relic_js" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_disable_new_relic_js()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_disable_new_relic_js() </pre>
+                <p><em>Disable New Relic&#039;s browser metrics</em></p>
+                <p>Removes NR's JavaScript for tracking browser metrics, including page load times, Apdex score, and more.</p>
+<p>Must be called at or before the <code>template_redirect</code> action.</p>
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_add_URI_to_newrelic" name="method_wpcom_vip_add_URI_to_newrelic" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_add_URI_to_newrelic()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_add_URI_to_newrelic() </pre>
+                <p><em>Add the exact URI to NewRelic tracking but only if we&#039;re not in the admin</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_irc" name="method_wpcom_vip_irc" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_irc()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_irc(  <span class="argument">$channel_or_user</span>,   <span class="argument">$message</span>,   <span class="argument">$botname = null</span>,   <span class="argument">$type = &#039;&#039;</span>,   <span class="argument">$interval</span>) </pre>
+                <p><em>Send a message to IRC</em></p>
+                <p>Example Usage</p>
+<p>wpcom_vip_irc( '@testuser', 'test message' );               // send testuser a pm on IRC from &quot;a8c&quot;
+wpcom_vip_irc( '@testuser', 'test message', 'a8c-test' );   // send testuser a pm on IRC from &quot;a8c-test&quot;
+wpcom_vip_irc( 'testing', 'test message' );                 // have &quot;a8c&quot; join #testing and say something
+wpcom_vip_irc( 'testing', 'test message', 'a8c-test' );     // have &quot;a8c-test&quot; join #testing and say something</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$channel_or_user </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$message </td>
+                                <td><p>(string) Message</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$botname </td>
+                                <td><p>(string) Optional botname to use on IRC.  This can be any valid unused nickname, defaults to a8c.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$type </td>
+                                <td><p>string Cache slug</p></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$interval </td>
+                                <td><p>integer Interval in seconds between two messages sent from one DC</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wpcom_vip_irc_color" name="method_wpcom_vip_irc_color" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">wpcom_vip_irc_color()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_irc_color(string  <span class="argument">$message</span>, string  <span class="argument">$foreground</span>, string  <span class="argument">$background = &#039;black&#039;</span>) </pre>
+                <p><em>Colour a message to be sent to IRC.</em></p>
+                <p>Example Usage</p>
+<p>wpcom_vip_irc_color('WARNING', 'red', 'black');</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$message </td>
+                                <td><p>Message to be coloured</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$foreground </td>
+                                <td><p>Foreground colour to be used - see code for list of colours</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$background </td>
+                                <td><p>Background colour to be used (default is black)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            package
+                        </th>
+                        <td>
+                                                                                            <p>Default</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/vip-helpers/vip-utils.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on February 6th, 2017 at 16:59.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
