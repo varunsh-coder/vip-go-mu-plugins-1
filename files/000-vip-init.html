@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1172641479"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1050178727"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1172641479" class="accordion-body collapse in">
+            <div id="namespace-1050178727" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1476402169"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1126800007"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-1476402169" class="accordion-body collapse ">
+            <div id="namespace-1126800007" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1320999861"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-355237812"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-1320999861" class="accordion-body collapse ">
+            <div id="namespace-355237812" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
@@ -173,7 +173,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-1014344515" class="accordion-body collapse ">
+            <div id="namespace-1007579557" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -227,10 +227,12 @@
                                                                     </nav>
 
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
-                    <h1><small>vip-helpers</small>vip-roles.php</h1>
-                    <p><em>Helper functions that make it easy to add roles for WordPress.com sites.</em></p>
-                    <p>We use the core API functions as well as modifying the $wp_user_roles global
-in case roles are re-initialized and our mods are lost.</p>
+                    <h1><small></small>000-vip-init.php</h1>
+                    <p><em>Initialisation for various VIP functionality</em></p>
+                    <p>By virtue of the filename, this file is included first of
+all the files in the VIP Go MU plugins directory. All
+VIP code should be initialised here, unless there's a
+good reason not to.</p>
 
                     
                     
@@ -251,45 +253,28 @@ in case roles are re-initialized and our mods are lost.</p>
                 </aside>
             </div>
 
-            
                         <div class="row-fluid">
                 <section class="span8 content file">
-                    <h2>Functions</h2>
+                    <h2>Constants</h2>
                 </section>
                 <aside class="span4 detailsbar"></aside>
             </div>
 
                                         <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_wpcom_vip_get_role_caps" name="method_wpcom_vip_get_role_caps" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">wpcom_vip_get_role_caps()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_get_role_caps(string  <span class="argument">$role</span>) : array</pre>
-                <p><em>Get a list of capabilities for a role.</em></p>
+            <a id="constant_A8C_PROXIED_REQUEST" name="constant_A8C_PROXIED_REQUEST" class="anchor"></a>
+            <article id="constant_A8C_PROXIED_REQUEST" class="constant">
+                <h3 class="">A8C_PROXIED_REQUEST</h3>
+                <pre class="signature">A8C_PROXIED_REQUEST</pre>
+                <p><em></em></p>
                 
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    array
-                                            &mdash; <p>Array of caps for the role</p>
-                                    				
-                            </article>
+            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">000-vip-init.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -298,7 +283,7 @@ in case roles are re-initialized and our mods are lost.</p>
                             package
                         </th>
                         <td>
-                                                                                            <p>Default</p>
+                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -307,51 +292,36 @@ in case roles are re-initialized and our mods are lost.</p>
 
                                         <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_wpcom_vip_add_role" name="method_wpcom_vip_add_role" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">wpcom_vip_add_role()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_add_role(string  <span class="argument">$role</span>, string  <span class="argument">$name</span>, array  <span class="argument">$capabilities</span>) </pre>
-                <p><em>Add a new role</em></p>
-                <p>Usage: wpcom_vip_add_role( 'super-editor', 'Super Editor', array( 'level_0' =&gt; true ) );</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>string</td>
-                                <td>$name </td>
-                                <td><p>Display name for the role</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>array</td>
-                                <td>$capabilities </td>
-                                <td><p>Key/value array of capabilities for the role</p></td>
-                            </tr>
-                                            </table>
+            <a id="constant_VIP_GO_ENV" name="constant_VIP_GO_ENV" class="anchor"></a>
+            <article id="constant_VIP_GO_ENV" class="constant">
+                <h3 class="">VIP_GO_ENV</h3>
+                <pre class="signature">VIP_GO_ENV</pre>
+                <p><em></em></p>
                 
-                
-                				
-                            </article>
+            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">000-vip-init.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
                         <th>
+                            constant
+                        </th>
+                        <td>
+                                                            <p>VIP_GO_ENV The name of the current VIP Go environment. Falls back to <code>false</code>.</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
                             package
                         </th>
                         <td>
-                                                                                            <p>Default</p>
+                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -360,37 +330,19 @@ in case roles are re-initialized and our mods are lost.</p>
 
                                         <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_wpcom_vip_merge_role_caps" name="method_wpcom_vip_merge_role_caps" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">wpcom_vip_merge_role_caps()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_merge_role_caps(string  <span class="argument">$role</span>, array  <span class="argument">$caps</span>) </pre>
-                <p><em>Add new or change existing capabilities for a given role</em></p>
-                <p>Usage: wpcom_vip_merge_role_caps( 'author', array( 'publish_posts' =&gt; false ) );</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>array</td>
-                                <td>$caps </td>
-                                <td><p>Key/value array of capabilities for this role</p></td>
-                            </tr>
-                                            </table>
+            <a id="constant_WPCOM_IS_VIP_ENV" name="constant_WPCOM_IS_VIP_ENV" class="anchor"></a>
+            <article id="constant_WPCOM_IS_VIP_ENV" class="constant">
+                <h3 class="">WPCOM_IS_VIP_ENV</h3>
+                <pre class="signature">WPCOM_IS_VIP_ENV</pre>
+                <p><em></em></p>
                 
-                
-                				
-                            </article>
+            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">000-vip-init.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -399,7 +351,7 @@ in case roles are re-initialized and our mods are lost.</p>
                             package
                         </th>
                         <td>
-                                                                                            <p>Default</p>
+                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -408,37 +360,19 @@ in case roles are re-initialized and our mods are lost.</p>
 
                                         <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_wpcom_vip_override_role_caps" name="method_wpcom_vip_override_role_caps" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">wpcom_vip_override_role_caps()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_override_role_caps(string  <span class="argument">$role</span>, array  <span class="argument">$caps</span>) </pre>
-                <p><em>Completely override capabilities for a given role</em></p>
-                <p>Usage: wpcom_vip_override_role_caps( 'editor', array( 'level_0' =&gt; false ) );</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>array</td>
-                                <td>$caps </td>
-                                <td><p>Key/value array of capabilities for this role</p></td>
-                            </tr>
-                                            </table>
+            <a id="constant_WPCOM_SANDBOXED" name="constant_WPCOM_SANDBOXED" class="anchor"></a>
+            <article id="constant_WPCOM_SANDBOXED" class="constant">
+                <h3 class="">WPCOM_SANDBOXED</h3>
+                <pre class="signature">WPCOM_SANDBOXED</pre>
+                <p><em></em></p>
                 
-                
-                				
-                            </article>
+            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
+                        <dl>
+                                <dt>File</dt>
+                <dd><a href=""><div class="path-wrapper">000-vip-init.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -447,204 +381,7 @@ in case roles are re-initialized and our mods are lost.</p>
                             package
                         </th>
                         <td>
-                                                                                            <p>Default</p>
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
-
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_wpcom_vip_duplicate_role" name="method_wpcom_vip_duplicate_role" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">wpcom_vip_duplicate_role()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_duplicate_role(string  <span class="argument">$from_role</span>, string  <span class="argument">$to_role_slug</span>, string  <span class="argument">$to_role_name</span>, array  <span class="argument">$modified_caps</span>) </pre>
-                <p><em>Duplicate an existing role and modify some caps</em></p>
-                <p>Usage: wpcom_vip_duplicate_role( 'administrator', 'station-administrator', 'Station Administrator', array( 'manage_categories' =&gt; false ) );</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$from_role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>string</td>
-                                <td>$to_role_slug </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>string</td>
-                                <td>$to_role_name </td>
-                                <td><p>Display name for the role</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>array</td>
-                                <td>$modified_caps </td>
-                                <td><p>Key/value array of capabilities for the role</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Default</p>
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
-
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_wpcom_vip_add_role_caps" name="method_wpcom_vip_add_role_caps" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">wpcom_vip_add_role_caps()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_add_role_caps(string  <span class="argument">$role</span>, array  <span class="argument">$caps</span>) </pre>
-                <p><em>Add capabilities to an existing role</em></p>
-                <p>Usage: wpcom_vip_add_role_caps( 'contributor', array( 'upload_files' ) );</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>array</td>
-                                <td>$caps </td>
-                                <td><p>Capabilities to add to the role</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Default</p>
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
-
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_wpcom_vip_remove_role_caps" name="method_wpcom_vip_remove_role_caps" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">wpcom_vip_remove_role_caps()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_remove_role_caps(string  <span class="argument">$role</span>, array  <span class="argument">$caps</span>) </pre>
-                <p><em>Remove capabilities from an existing role</em></p>
-                <p>Usage: wpcom_vip_remove_role_caps( 'author', array( 'publish_posts' ) );</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                                    <tr>
-                                <td>array</td>
-                                <td>$caps </td>
-                                <td><p>Capabilities to remove from the role</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Default</p>
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
-
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method__wpcom_vip_maybe_refresh_current_user_caps" name="method__wpcom_vip_maybe_refresh_current_user_caps" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">_wpcom_vip_maybe_refresh_current_user_caps()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">_wpcom_vip_maybe_refresh_current_user_caps(string  <span class="argument">$role</span>) </pre>
-                <p><em>Force refreshes the current user&#039;s capabilities if they belong to the specified role.</em></p>
-                <p>This is to prevent a race condition where the WP_User and its related caps are generated before or roles changes.</p>
-
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>string</td>
-                                <td>$role </td>
-                                <td><p>Role name</p></td>
-                            </tr>
-                                            </table>
-                
-                
-                				
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-roles.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Default</p>
+                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -652,6 +389,7 @@ in case roles are re-initialized and our mods are lost.</p>
     </div>
 
                             
+            
         </div>
     </section>
 
@@ -661,7 +399,7 @@ in case roles are re-initialized and our mods are lost.</p>
             <h3 id="source-view-label"></h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/vip-helpers/vip-roles.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/000-vip-init.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
 
