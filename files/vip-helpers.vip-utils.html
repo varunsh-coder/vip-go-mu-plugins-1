@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1251975735"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-676022867"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1251975735" class="accordion-body collapse in">
+            <div id="namespace-676022867" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-128534656"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1239021165"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-128534656" class="accordion-body collapse ">
+            <div id="namespace-1239021165" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-98937811"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1827747577"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-98937811" class="accordion-body collapse ">
+            <div id="namespace-1827747577" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
@@ -173,7 +173,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-1160974434" class="accordion-body collapse ">
+            <div id="namespace-1243068828" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -2062,7 +2062,7 @@ This function is an alternative method for getting random posts, though it's not
             <article class="method">
                 <h3 class=" ">wpcom_vip_wp_oembed_get()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">wpcom_vip_wp_oembed_get(string  <span class="argument">$url</span>, array  <span class="argument">$args = array()</span>) : string</pre>
+                <pre class="signature" style="margin-right: 54px;">wpcom_vip_wp_oembed_get(string  <span class="argument">$url</span>, array  <span class="argument">$args = array()</span>, integer  <span class="argument">$ttl = false</span>) : string</pre>
                 <p><em>A version of wp_oembed_get() that provides caching.</em></p>
                 <p>Note that if you're using this within the contents of a post, it's probably better to use the existing
 WordPress functionality: <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>. This helper function is more meant for other
@@ -2079,6 +2079,11 @@ places, such as sidebars.</p>
                                 <td>array</td>
                                 <td>$args </td>
                                 <td><p>Addtional arguments and parameters the embed</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$ttl </td>
+                                <td><p>How long to cache for in seconds; minimum 18000 (5 Hours)</p></td>
                             </tr>
                                             </table>
                 
@@ -2674,7 +2679,7 @@ wpcom_vip_irc( 'testing', 'test message', 4 );      // have &quot;a8c-test&quot;
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on November 27th, 2017 at 20:07.
+                    on November 27th, 2017 at 20:19.
                 </section>
             </section>
         </section>
