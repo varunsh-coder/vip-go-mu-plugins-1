@@ -21,7 +21,7 @@
 <path fill="none" stroke="gray" d="M379,-500C379,-500 471,-500 471,-500 477,-500 483,-506 483,-512 483,-512 483,-596 483,-596 483,-602 477,-608 471,-608 471,-608 379,-608 379,-608 373,-608 367,-602 367,-596 367,-596 367,-512 367,-512 367,-506 373,-500 379,-500"/>
 <text text-anchor="middle" x="425" y="-595.2" font-family="Times,serif" font-size="11.00" fill="gray">VIP</text>
 </g>
-<g id="clust6" class="cluster"><title>cluster_\Automattic\VIP\Cache</title>
+<g id="clust4" class="cluster"><title>cluster_\Automattic\VIP\Cache</title>
 <path fill="none" stroke="gray" d="M387,-508C387,-508 463,-508 463,-508 469,-508 475,-514 475,-520 475,-520 475,-568 475,-568 475,-574 469,-580 463,-580 463,-580 387,-580 387,-580 381,-580 375,-574 375,-568 375,-568 375,-520 375,-520 375,-514 381,-508 387,-508"/>
 <text text-anchor="middle" x="425" y="-567.2" font-family="Times,serif" font-size="11.00" fill="gray">Cache</text>
 </g>
