@@ -12,10 +12,16 @@ require_once __DIR__ . '/wpcom-vip-two-factor/set-providers.php';
 // Detect if the current user is logged in via Jetpack SSO
 require_once __DIR__ . '/wpcom-vip-two-factor/is-jetpack-sso.php';
 
-define( 'VIP_2FA_TIME_GATE', strtotime( '2019-07-17 18:00:00' ) );
+defined( 'VIP_2FA_TIME_GATE' ) || define( 'VIP_2FA_TIME_GATE', strtotime( '2019-07-24 18:00:00' ) );
 define( 'VIP_IS_AFTER_2FA_TIME_GATE', time() > VIP_2FA_TIME_GATE );
 
 function wpcom_vip_should_force_two_factor() {
+
+	// Don't force 2FA by default in local environments
+	if ( ! WPCOM_IS_VIP_ENV && ! apply_filters( 'wpcom_vip_is_two_factor_local_testing', false ) ) {
+		return false;
+	}
+	
 	// The proxy is the second factor for VIP Support users
 	if ( true === A8C_PROXIED_REQUEST ) {
 		return false;
