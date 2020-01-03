@@ -39,5 +39,6 @@ docker run \
 	-v $(pwd):/app \
 	-v /tmp/wordpress-tests-lib-$WP_VERSION:/tmp/wordpress-tests-lib \
 	-v /tmp/wordpress-$WP_VERSION:/tmp/wordpress \
+	--entrypoint="" \
 	--rm phpunit/phpunit \
-	--bootstrap /app/tests/bootstrap.php "$@"
+	/bin/bash -c "apk add build-base zlib-dev php7-pear php7-dev && pecl config-set php_ini /etc/php7/php.ini && pecl install memcache && /usr/local/bin/phpunit --bootstrap /app/tests/bootstrap.php $@"
