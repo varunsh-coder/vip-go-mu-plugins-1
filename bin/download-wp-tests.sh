@@ -45,6 +45,7 @@ set -ex
 shopt -s extglob;
 WP_TESTS_DIR_ACTUAL="${WP_TESTS_DIR%%+(/)}-${WP_VERSION}/"
 WP_CORE_DIR_ACTUAL="${WP_CORE_DIR%%+(/)}-${WP_VERSION}/"
+OBJECT_CACHE_DROPIN="${WP_CORE_DIR_ACTUAL}/wp-content/object-cache.php"
 
 install_wp() {
 
@@ -64,6 +65,15 @@ install_wp() {
 	tar --strip-components=1 -zxmf /tmp/wordpress.tar.gz -C $WP_CORE_DIR_ACTUAL
 
 	download https://raw.github.com/markoheijnen/wp-mysqli/master/db.php $WP_CORE_DIR_ACTUAL/wp-content/db.php
+}
+
+install_dropins() {
+	if [ -f $OBJECT_CACHE_DROPIN ]; then
+		return;
+	fi
+
+	# Not necessarily the same version that is used in production...better than nothing right now though
+	download https://raw.githubusercontent.com/Automattic/wp-memcached/master/object-cache.php $OBJECT_CACHE_DROPIN
 }
 
 install_test_suite() {
@@ -96,6 +106,7 @@ install_test_suite() {
 }
 
 install_wp
+install_dropins
 install_test_suite
 
 # Create a symbolic link to the version specific directories
