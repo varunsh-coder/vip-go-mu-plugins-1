@@ -16,8 +16,10 @@ echo
 MYSQL_ROOT_PASSWORD='wordpress'
 docker network create tests
 db=$(docker run --network tests --name db -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -d mariadb)
+memcached=$(docker run --network tests --name memcached -d memcached)
 function cleanup() {
 	docker rm -f $db
+	docker rm -f $memcached
 	docker network rm tests
 }
 trap cleanup EXIT
