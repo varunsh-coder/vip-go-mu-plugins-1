@@ -114,7 +114,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">164</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">170</span>
                                 </a>
                             </li>
                             <li>
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1897165916"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1302302270"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1897165916" class="accordion-body collapse in">
+            <div id="namespace-1302302270" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1799979160"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-90016768"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-1799979160" class="accordion-body collapse ">
+            <div id="namespace-90016768" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-868636655"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-621807061"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-868636655" class="accordion-body collapse ">
+            <div id="namespace-621807061" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-707496752"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1201562044"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-707496752" class="accordion-body collapse ">
+            <div id="namespace-1201562044" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -191,7 +191,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-418366175" class="accordion-body collapse ">
+            <div id="namespace-1289755584" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -207,7 +207,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-1360592793" class="accordion-body collapse ">
+            <div id="namespace-1448591627" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -1829,20 +1829,20 @@ This function is an alternative method for getting random posts, though it's not
 
                                         <div class="row-fluid">
         <div class="span8 content class">
-            <a id="method_vip_safe_wp_remote_get" name="method_vip_safe_wp_remote_get" class="anchor"></a>
+            <a id="method_vip_safe_wp_remote_request" name="method_vip_safe_wp_remote_request" class="anchor"></a>
             <article class="method">
-                <h3 class=" ">vip_safe_wp_remote_get()</h3>
+                <h3 class=" ">vip_safe_wp_remote_request()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">vip_safe_wp_remote_get(string  <span class="argument">$url</span>, string  <span class="argument">$fallback_value = &#039;&#039;</span>, integer  <span class="argument">$threshold = 3</span>, integer  <span class="argument">$timeout = 1</span>, integer  <span class="argument">$retry = 20</span>,   <span class="argument">$args = array()</span>) : string|\WP_Error|array</pre>
-                <p><em>This is a sophisticated extended version of wp_remote_get(). It is designed to more gracefully handle failure than wpcom_vip_file_get_contents() does.</em></p>
-                <p>Note that like wp_remote_get(), this function does not cache.</p>
+                <pre class="signature" style="margin-right: 54px;">vip_safe_wp_remote_request(string  <span class="argument">$url</span>, string  <span class="argument">$fallback_value = &#039;&#039;</span>, integer  <span class="argument">$threshold = 3</span>, integer  <span class="argument">$timeout = 1</span>, integer  <span class="argument">$retry = 20</span>,   <span class="argument">$args = array()</span>) : string|\WP_Error|array</pre>
+                <p><em>This is a sophisticated extended version of wp_remote_request(). It is designed to more gracefully handle failure than wpcom_vip_file_get_contents() does.</em></p>
+                <p>Note that like wp_remote_request(), this function does not cache.</p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>string</td>
                                 <td>$url </td>
-                                <td><p>URL to fetch</p></td>
+                                <td><p>URL to request</p></td>
                             </tr>
                                                     <tr>
                                 <td>string</td>
@@ -1885,7 +1885,7 @@ This function is an alternative method for getting random posts, though it's not
                     <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
-                                                                                                    <dd><a href=""><span class="namespace-wrapper">\wp_remote_get()</span></a></dd>
+                                                                                                    <dd><a href=""><span class="namespace-wrapper">\wp_remote_request()</span></a></dd>
                                                                 </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1897,12 +1897,76 @@ This function is an alternative method for getting random posts, though it's not
                                                                                             <p>Default</p>
                                                     </td>
                     </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                        <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_vip_safe_wp_remote_get" name="method_vip_safe_wp_remote_get" class="anchor"></a>
+            <article class="method">
+                <h3 class=" ">vip_safe_wp_remote_get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">vip_safe_wp_remote_get(  <span class="argument">$url</span>,   <span class="argument">$fallback_value = &#039;&#039;</span>,   <span class="argument">$threshold = 3</span>,   <span class="argument">$timeout = 1</span>,   <span class="argument">$retry = 20</span>,   <span class="argument">$args = array()</span>) </pre>
+                <p><em>This is a convenience method for vip_safe_wp_remote_request() and behaves the same</em></p>
+                <p>Note that like wp_remote_get(), this function does not cache.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$url </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$fallback_value </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$threshold </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$timeout </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$retry </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                    <dt>File</dt>
+                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="http://vip.wordpress.com/documentation/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
+                                                                                                    <dd><a href="../namespaces/default.html#function_vip_safe_wp_remote_request"><span class="namespace-wrapper">\vip_safe_wp_remote_request()</span></a></dd>
+                                            <dd><a href=""><span class="namespace-wrapper">\wp_remote_get()</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
                                     <tr>
                         <th>
-                            author
+                            package
                         </th>
                         <td>
-                                                                                            <p>tottdev</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -2876,7 +2940,7 @@ wpcom_vip_irc( 'testing', 'test message', 4 );      // have &quot;a8c-test&quot;
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 8th, 2020 at 23:19.
+                    on January 10th, 2020 at 18:26.
                 </section>
             </section>
         </section>
