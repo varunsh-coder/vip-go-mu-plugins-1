@@ -24,7 +24,7 @@
         <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1590275860"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1888903338"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1590275860" class="accordion-body collapse in">
+            <div id="namespace-1888903338" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-763160387"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-994961355"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-763160387" class="accordion-body collapse ">
+            <div id="namespace-994961355" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1619069951"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-901347234"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-1619069951" class="accordion-body collapse ">
+            <div id="namespace-901347234" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2014638764"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1701907123"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-2014638764" class="accordion-body collapse ">
+            <div id="namespace-1701907123" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -191,7 +191,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-2015431798" class="accordion-body collapse ">
+            <div id="namespace-997271282" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -207,7 +207,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-838981895" class="accordion-body collapse ">
+            <div id="namespace-22952121" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -304,7 +304,7 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -315,7 +315,7 @@
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/development-environment/"><span class="namespace-wrapper">Setting up your Development Environment</span></a></dd>
                                                                 </dl>
@@ -345,7 +345,7 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -356,7 +356,7 @@
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -384,7 +384,7 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -395,7 +395,7 @@
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -423,7 +423,7 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -434,7 +434,7 @@
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -492,7 +492,7 @@ like jetpack_relatedposts_filter_args, jetpack_relatedposts_filter_filters</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Returns an HTML unordered list of related posts from the same blog.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -503,7 +503,7 @@ like jetpack_relatedposts_filter_args, jetpack_relatedposts_filter_filters</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -555,7 +555,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                                     <h4>Returns</h4>
                     array
                                             &mdash; <p>of related posts.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -566,7 +566,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -594,7 +594,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -605,7 +605,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -641,7 +641,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -652,7 +652,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="../namespaces/default.html#function_vip_admin_gallery_css_extras"><span class="namespace-wrapper">\vip_admin_gallery_css_extras()</span></a></dd>
                                                                 </dl>
@@ -682,7 +682,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -693,7 +693,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -721,7 +721,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -732,7 +732,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="../namespaces/default.html#function_wpcom_vip_disable_enhanced_feeds"><span class="namespace-wrapper">\wpcom_vip_disable_enhanced_feeds()</span></a></dd>
                                                                 </dl>
@@ -778,7 +778,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -789,7 +789,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -833,7 +833,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -844,7 +844,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -880,7 +880,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -891,7 +891,7 @@ using Elasticsearch, then converts the results to match the original sphere resu
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -937,7 +937,7 @@ You can use this function in your themes. The function uses data from WordPress.
                 
                                     <h4>Returns</h4>
                     array
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -948,7 +948,7 @@ You can use this function in your themes. The function uses data from WordPress.
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -976,7 +976,7 @@ You can use this function in your themes. The function uses data from WordPress.
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -987,7 +987,7 @@ You can use this function in your themes. The function uses data from WordPress.
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1023,7 +1023,7 @@ You can use this function in your themes. The function uses data from WordPress.
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1034,7 +1034,7 @@ You can use this function in your themes. The function uses data from WordPress.
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1070,7 +1070,7 @@ You can use this function in your themes. The function uses data from WordPress.
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1081,7 +1081,7 @@ You can use this function in your themes. The function uses data from WordPress.
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1109,7 +1109,7 @@ You can use this function in your themes. The function uses data from WordPress.
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1120,7 +1120,7 @@ You can use this function in your themes. The function uses data from WordPress.
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1157,7 +1157,7 @@ For details on creating a custom feed, see <a href="http://lobby.vip.wordpress.c
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1168,7 +1168,7 @@ For details on creating a custom feed, see <a href="http://lobby.vip.wordpress.c
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1196,14 +1196,14 @@ For details on creating a custom feed, see <a href="http://lobby.vip.wordpress.c
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1231,7 +1231,7 @@ For details on creating a custom feed, see <a href="http://lobby.vip.wordpress.c
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1242,7 +1242,7 @@ For details on creating a custom feed, see <a href="http://lobby.vip.wordpress.c
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/open-graph/"><span class="namespace-wrapper">Adding Open Graph Tags</span></a></dd>
                                                                                                     <dd><a href="http://developers.facebook.com/docs/opengraph/"><span class="namespace-wrapper">Open Graph</span></a></dd>
@@ -1275,7 +1275,7 @@ function forces the invitation email to match the WordPress.com user's email add
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1286,7 +1286,7 @@ function forces the invitation email to match the WordPress.com user's email add
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/customizing-invites/"><span class="namespace-wrapper">Customizing Invites</span></a></dd>
                                                                 </dl>
@@ -1339,7 +1339,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Value from get_post_meta</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1350,7 +1350,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1410,7 +1410,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                                     <h4>Returns</h4>
                     array|\WP_Error
                                             &mdash; <p>Array with post objects or a WP_Error</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1421,7 +1421,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1449,7 +1449,7 @@ A good scenario where this could be used is to ensure published posts are not sy
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1460,7 +1460,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1488,7 +1488,7 @@ A good scenario where this could be used is to ensure published posts are not sy
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1499,7 +1499,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1530,7 +1530,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Always returns false</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1541,7 +1541,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1569,7 +1569,7 @@ A good scenario where this could be used is to ensure published posts are not sy
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1580,7 +1580,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1608,14 +1608,14 @@ A good scenario where this could be used is to ensure published posts are not sy
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="../namespaces/default.html#function_wpcom_vip_allow_more_html_in_comments"><span class="namespace-wrapper">\wpcom_vip_allow_more_html_in_comments()</span></a></dd>
                                                                 </dl>
@@ -1653,7 +1653,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1664,7 +1664,7 @@ A good scenario where this could be used is to ensure published posts are not sy
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1693,7 +1693,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1704,7 +1704,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1732,7 +1732,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1743,7 +1743,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://en.support.wordpress.com/geotagging/"><span class="namespace-wrapper">http://en.support.wordpress.com/geotagging/</span></a></dd>
                                                                 </dl>
@@ -1773,7 +1773,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1784,7 +1784,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1812,7 +1812,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1823,7 +1823,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1851,7 +1851,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1862,7 +1862,7 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1890,14 +1890,14 @@ higher resolution (such as smartphones), and is distributed inside Jetpack.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1949,7 +1949,7 @@ be removed.</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True on successful update, false on failure.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -1960,7 +1960,7 @@ be removed.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2006,7 +2006,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 
                                     <h4>Returns</h4>
                     mixed
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2017,7 +2017,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2066,7 +2066,7 @@ than one metadata value, then it will be list of metadata values.</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True deletion completed and false if user_id is not a number.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2077,9 +2077,9 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                                             <dt>Uses</dt>
-                                                                <dd>$wpdb</dd>
+                                                                <dd><a href=""><span class="namespace-wrapper">WordPress database object for queries.</span></a></dd>
                                                 </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2120,14 +2120,14 @@ than one metadata value, then it will be list of metadata values.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2163,14 +2163,14 @@ than one metadata value, then it will be list of metadata values.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2219,7 +2219,7 @@ than one metadata value, then it will be list of metadata values.</p>
                                     <h4>Returns</h4>
                     string|null
                                             &mdash; <p>If $echo_content is true, there will be no return value.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2230,7 +2230,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://lobby.vip.wordpress.com/best-practices/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
                                                                                                     <dd><a href=""><span class="namespace-wrapper">\wpcom_vip_file_get_contents</span></a></dd>
@@ -2261,7 +2261,7 @@ than one metadata value, then it will be list of metadata values.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2272,7 +2272,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2308,7 +2308,7 @@ than one metadata value, then it will be list of metadata values.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2319,7 +2319,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2355,7 +2355,7 @@ than one metadata value, then it will be list of metadata values.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2366,7 +2366,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2402,7 +2402,7 @@ than one metadata value, then it will be list of metadata values.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2413,7 +2413,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2449,7 +2449,7 @@ than one metadata value, then it will be list of metadata values.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2460,7 +2460,7 @@ than one metadata value, then it will be list of metadata values.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2511,7 +2511,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>The meta description</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2522,7 +2522,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="../namespaces/default.html#function_wpcom_vip_meta_desc"><span class="namespace-wrapper">\wpcom_vip_meta_desc()</span></a></dd>
                                                                 </dl>
@@ -2552,7 +2552,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2563,7 +2563,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2591,7 +2591,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2602,7 +2602,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2641,7 +2641,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>If current site_url() matches one in the list</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2652,7 +2652,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2682,7 +2682,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2693,7 +2693,7 @@ add_action( 'wp_head', 'wpcom_vip_meta_desc' );</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2730,7 +2730,7 @@ A single string will be converted to an array &amp; work</p></td>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2741,9 +2741,9 @@ A single string will be converted to an array &amp; work</p></td>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                                             <dt>Uses</dt>
-                                                                <dd>filter</dd>
+                                                                <dd><a href=""><span class="namespace-wrapper">smileyproject_smilies</span></a></dd>
                                                 </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2779,7 +2779,7 @@ A single string will be converted to an array &amp; work</p></td>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2790,7 +2790,7 @@ A single string will be converted to an array &amp; work</p></td>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2826,14 +2826,14 @@ A single string will be converted to an array &amp; work</p></td>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2869,7 +2869,7 @@ A single string will be converted to an array &amp; work</p></td>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2880,7 +2880,7 @@ A single string will be converted to an array &amp; work</p></td>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2946,7 +2946,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Result format is CSV with one row per line and column names in first row.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -2957,7 +2957,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3009,7 +3009,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                                     <h4>Returns</h4>
                     array
                                             &mdash; <p>Array of most shared post IDs</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3020,7 +3020,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3100,7 +3100,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Result format is XML dataset.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3111,7 +3111,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3158,7 +3158,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>ISO 8601 UTC datetime string formatted as YYYY-MM-DDThh:mm:ssTZD where timezone offset is always +00:00</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3169,7 +3169,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://www.w3.org/TR/NOTE-datetime"><span class="namespace-wrapper">W3C date and time formats document</span></a></dd>
                                                                 </dl>
@@ -3199,7 +3199,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3210,7 +3210,7 @@ Becomes: &quot;&quot;&quot;pet food&quot;&quot; recipe&quot;</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3250,7 +3250,7 @@ Uses text/xml by default, possibly overridden by sitemap_content_type filter</em
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Internet media type for the sitemap XML</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3261,7 +3261,7 @@ Uses text/xml by default, possibly overridden by sitemap_content_type filter</em
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3297,14 +3297,14 @@ Uses text/xml by default, possibly overridden by sitemap_content_type filter</em
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3340,14 +3340,14 @@ Uses text/xml by default, possibly overridden by sitemap_content_type filter</em
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3391,7 +3391,7 @@ Uses text/xml by default, possibly overridden by sitemap_content_type filter</em
                                     <h4>Returns</h4>
                     \SimpleXMLElement
                                             &mdash; <p>full tree with new children mapped from array</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3402,7 +3402,7 @@ Uses text/xml by default, possibly overridden by sitemap_content_type filter</em
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3434,7 +3434,7 @@ Passes array through sitemap_ns for other functions to add their own namespaces<
                                     <h4>Returns</h4>
                     array
                                             &mdash; <p>array of attribute value pairs passed through the sitemap_ns filter</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3445,7 +3445,7 @@ Passes array through sitemap_ns for other functions to add their own namespaces<
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3481,14 +3481,14 @@ Passes array through sitemap_ns for other functions to add their own namespaces<
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3517,7 +3517,7 @@ Outputs an XML list of up to the latest 1000 posts.</em></p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3528,7 +3528,7 @@ Outputs an XML list of up to the latest 1000 posts.</em></p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://sitemaps.org/protocol.php"><span class="namespace-wrapper">Sitemaps.org protocol</span></a></dd>
                                                                 </dl>
@@ -3574,14 +3574,14 @@ Outputs an XML list of up to the latest 1000 posts.</em></p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3618,7 +3618,7 @@ would impact we will convert n: to news: as late as possible.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3629,7 +3629,7 @@ would impact we will convert n: to news: as late as possible.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3660,7 +3660,7 @@ would impact we will convert n: to news: as late as possible.</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>sitemap URL</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3671,7 +3671,7 @@ would impact we will convert n: to news: as late as possible.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3699,7 +3699,7 @@ would impact we will convert n: to news: as late as possible.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3710,7 +3710,7 @@ would impact we will convert n: to news: as late as possible.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3742,7 +3742,7 @@ See <a href="http://systemattic.wordpress.com/2010/02/11/sitemap-jobs-queue-show
                                     <h4>Returns</h4>
                     array
                                             &mdash; <p>List of endpoints waiting for a URI append</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3753,7 +3753,7 @@ See <a href="http://systemattic.wordpress.com/2010/02/11/sitemap-jobs-queue-show
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3789,7 +3789,7 @@ See <a href="http://systemattic.wordpress.com/2010/02/11/sitemap-jobs-queue-show
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3800,7 +3800,7 @@ See <a href="http://systemattic.wordpress.com/2010/02/11/sitemap-jobs-queue-show
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3828,7 +3828,7 @@ See <a href="http://systemattic.wordpress.com/2010/02/11/sitemap-jobs-queue-show
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3839,7 +3839,7 @@ See <a href="http://systemattic.wordpress.com/2010/02/11/sitemap-jobs-queue-show
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3876,7 +3876,7 @@ Add a job to the pings queue to send out update notifications</em></p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3887,7 +3887,7 @@ Add a job to the pings queue to send out update notifications</em></p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -3915,7 +3915,7 @@ Add a job to the pings queue to send out update notifications</em></p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3927,7 +3927,7 @@ Helper function for wpcom_vip_disable_enhanced_feeds().
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="../namespaces/default.html#function_wpcom_vip_disable_enhanced_feeds"><span class="namespace-wrapper">\wpcom_vip_disable_enhanced_feeds()</span></a></dd>
                                                                 </dl>
@@ -3957,7 +3957,7 @@ Helper function for wpcom_vip_disable_enhanced_feeds().
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -3968,7 +3968,7 @@ Helper function for wpcom_vip_disable_enhanced_feeds().
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4000,7 +4000,7 @@ so that v1 client code works as expected</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4011,7 +4011,7 @@ so that v1 client code works as expected</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4068,7 +4068,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4079,7 +4079,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/image-resizing-and-cropping/"><span class="namespace-wrapper">Image Resizing And Cropping</span></a></dd>
                                                                 </dl>
@@ -4117,7 +4117,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4128,7 +4128,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4176,7 +4176,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4187,7 +4187,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4231,7 +4231,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                                     <h4>Returns</h4>
                     string|boolean
                                             &mdash; <p>URL for the specified theme and path. If path doesn't exist, returns false.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4242,7 +4242,7 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4281,14 +4281,14 @@ So even though it says &quot;remote&quot;, you can use it for attachments hosted
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Path for the specified theme</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/mobile-theme/"><span class="namespace-wrapper">Developing for Mobile Phones and Tablets</span></a></dd>
                                                                 </dl>
@@ -4321,7 +4321,7 @@ function to disable this plugin&#039;s (de)activation links.</em></p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4332,7 +4332,7 @@ function to disable this plugin&#039;s (de)activation links.</em></p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4396,7 +4396,7 @@ function to disable this plugin&#039;s (de)activation links.</em></p>
                                     <h4>Returns</h4>
                     array
                                             &mdash; <p>Result as array.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4407,7 +4407,7 @@ function to disable this plugin&#039;s (de)activation links.</em></p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4455,7 +4455,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4466,7 +4466,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4494,7 +4494,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4505,7 +4505,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4533,7 +4533,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4544,7 +4544,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4572,7 +4572,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -4583,7 +4583,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-deprecated.html"><div class="path-wrapper">vip-helpers/vip-deprecated.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -4650,7 +4650,7 @@ bool disable_ssl =&gt; Optional. Whether SSL should be disabled for the custom C
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 27th, 2020 at 16:22.
+                    on January 27th, 2020 at 21:39.
                 </section>
             </section>
         </section>

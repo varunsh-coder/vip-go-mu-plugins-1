@@ -24,7 +24,7 @@
         <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-137743746"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-826838001"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-137743746" class="accordion-body collapse in">
+            <div id="namespace-826838001" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-954646425"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-355567727"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-954646425" class="accordion-body collapse ">
+            <div id="namespace-355567727" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1288138482"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-133221879"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-1288138482" class="accordion-body collapse ">
+            <div id="namespace-133221879" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1871338539"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-768678632"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-1871338539" class="accordion-body collapse ">
+            <div id="namespace-768678632" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -191,7 +191,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-2024802793" class="accordion-body collapse ">
+            <div id="namespace-931744169" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -207,7 +207,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-111850497" class="accordion-body collapse ">
+            <div id="namespace-431226602" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -296,7 +296,7 @@
             <a id="constant_WPCOM_VIP_CUSTOM_PERMALINKS" name="constant_WPCOM_VIP_CUSTOM_PERMALINKS" class="anchor"></a>
             <article id="constant_WPCOM_VIP_CUSTOM_PERMALINKS" class="constant">
                 <h3 class="">WPCOM_VIP_CUSTOM_PERMALINKS</h3>
-                <pre class="signature">WPCOM_VIP_CUSTOM_PERMALINKS</pre>
+                <pre class="signature">WPCOM_VIP_CUSTOM_PERMALINKS = true</pre>
                 <p><em></em></p>
                 
             </article>
@@ -314,7 +314,7 @@
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -326,7 +326,7 @@
             <a id="constant_WPCOM_VIP_CUSTOM_CATEGORY_BASE" name="constant_WPCOM_VIP_CUSTOM_CATEGORY_BASE" class="anchor"></a>
             <article id="constant_WPCOM_VIP_CUSTOM_CATEGORY_BASE" class="constant">
                 <h3 class="">WPCOM_VIP_CUSTOM_CATEGORY_BASE</h3>
-                <pre class="signature">WPCOM_VIP_CUSTOM_CATEGORY_BASE</pre>
+                <pre class="signature">WPCOM_VIP_CUSTOM_CATEGORY_BASE = true</pre>
                 <p><em></em></p>
                 
             </article>
@@ -344,7 +344,7 @@
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -356,7 +356,7 @@
             <a id="constant_WPCOM_VIP_CUSTOM_TAG_BASE" name="constant_WPCOM_VIP_CUSTOM_TAG_BASE" class="anchor"></a>
             <article id="constant_WPCOM_VIP_CUSTOM_TAG_BASE" class="constant">
                 <h3 class="">WPCOM_VIP_CUSTOM_TAG_BASE</h3>
-                <pre class="signature">WPCOM_VIP_CUSTOM_TAG_BASE</pre>
+                <pre class="signature">WPCOM_VIP_CUSTOM_TAG_BASE = true</pre>
                 <p><em></em></p>
                 
             </article>
@@ -374,7 +374,7 @@
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -409,14 +409,14 @@
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/change-your-pretty-permalinks-or-add-custom-rewrite-rules/"><span class="namespace-wrapper">Change Your Pretty Permalinks</span></a></dd>
                                                                 </dl>
@@ -457,14 +457,14 @@
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>The new permastruct</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/change-your-pretty-permalinks-or-add-custom-rewrite-rules/"><span class="namespace-wrapper">Change Your Pretty Permalinks</span></a></dd>
                                                                 </dl>
@@ -504,14 +504,14 @@ wpcom_vip_load_category_base( 'section' );</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/change-your-pretty-permalinks-or-add-custom-rewrite-rules/"><span class="namespace-wrapper">Change Your Pretty Permalinks</span></a></dd>
                                                                 </dl>
@@ -552,14 +552,14 @@ wpcom_vip_load_category_base( 'section' );</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>The category base prefix</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/change-your-pretty-permalinks-or-add-custom-rewrite-rules/"><span class="namespace-wrapper">Change Your Pretty Permalinks</span></a></dd>
                                                                 </dl>
@@ -598,14 +598,14 @@ wpcom_vip_load_tag_base( 'section' );</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/change-your-pretty-permalinks-or-add-custom-rewrite-rules/"><span class="namespace-wrapper">Change Your Pretty Permalinks</span></a></dd>
                                                                 </dl>
@@ -646,14 +646,14 @@ wpcom_vip_load_tag_base( 'section' );</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>The tag base prefix</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/change-your-pretty-permalinks-or-add-custom-rewrite-rules/"><span class="namespace-wrapper">Change Your Pretty Permalinks</span></a></dd>
                                                                 </dl>
@@ -683,14 +683,14 @@ wpcom_vip_load_tag_base( 'section' );</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -722,14 +722,14 @@ reinitialize wp_rewrite.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-permastructs.html"><div class="path-wrapper">vip-helpers/vip-permastructs.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -796,7 +796,7 @@ reinitialize wp_rewrite.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 27th, 2020 at 16:22.
+                    on January 27th, 2020 at 21:39.
                 </section>
             </section>
         </section>

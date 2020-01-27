@@ -24,7 +24,7 @@
         <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-190324733"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-122592126"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-190324733" class="accordion-body collapse in">
+            <div id="namespace-122592126" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-144937415"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1183424630"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-144937415" class="accordion-body collapse ">
+            <div id="namespace-1183424630" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1780485956"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1550670415"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-1780485956" class="accordion-body collapse ">
+            <div id="namespace-1550670415" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1553257842"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1151716761"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-1553257842" class="accordion-body collapse ">
+            <div id="namespace-1151716761" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -191,7 +191,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-206547280" class="accordion-body collapse ">
+            <div id="namespace-1134357580" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -207,7 +207,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-880759435" class="accordion-body collapse ">
+            <div id="namespace-1725360552" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -315,14 +315,14 @@
                                     <h4>Returns</h4>
                     object|null|boolean
                                             &mdash; <p>Term Row from database. Will return null if $slug doesn't match a term. If taxonomy does not exist then false will be returned.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/uncached-functions/"><span class="namespace-wrapper">Uncached Functions</span></a></dd>
                                                                 </dl>
@@ -384,14 +384,14 @@ This function helps prevent that by adding a layer of caching.</p>
                                     <h4>Returns</h4>
                     mixed|null|boolean
                                             &mdash; <p>Term Row from database in the type specified by $filter. Will return false if $taxonomy does not exist or $term was not found.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/uncached-functions/"><span class="namespace-wrapper">Uncached Functions</span></a></dd>
                                                                 </dl>
@@ -434,14 +434,14 @@ This function helps prevent that by adding a layer of caching.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -494,14 +494,14 @@ This function adds a layer of caching to prevent lots of queries.</p>
 if no taxonomy is specified and the term ID exists. Returns
 an array of the term ID and the term taxonomy ID the taxonomy
 is specified and the pairing exists.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -552,14 +552,14 @@ is specified and the pairing exists.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -603,14 +603,14 @@ is specified and the pairing exists.</p>
                                     <h4>Returns</h4>
                     string|\WP_Error
                                             &mdash; <p>HTML link to taxonomy term archive on success, WP_Error if term does not exist.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -659,14 +659,14 @@ is specified and the pairing exists.</p>
                                     <h4>Returns</h4>
                     \WP_Post|null
                                             &mdash; <p>WP_Post on success or null on failure</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/uncached-functions/"><span class="namespace-wrapper">Uncached Functions</span></a></dd>
                                                                 </dl>
@@ -717,14 +717,14 @@ is specified and the pairing exists.</p>
                                     <h4>Returns</h4>
                     \WP_Post|null
                                             &mdash; <p>WP_Post on success or null on failure</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/uncached-functions/"><span class="namespace-wrapper">Uncached Functions</span></a></dd>
                                                                 </dl>
@@ -772,14 +772,14 @@ is specified and the pairing exists.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/uncached-functions/"><span class="namespace-wrapper">Uncached Functions</span></a></dd>
                                                                 </dl>
@@ -827,14 +827,14 @@ is specified and the pairing exists.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/uncached-functions/"><span class="namespace-wrapper">Uncached Functions</span></a></dd>
                                                                 </dl>
@@ -875,14 +875,14 @@ is specified and the pairing exists.</p>
                                     <h4>Returns</h4>
                     integer
                                             &mdash; <p>Post ID, or 0 on failure.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -910,7 +910,7 @@ is specified and the pairing exists.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
@@ -921,7 +921,7 @@ is specified and the pairing exists.</p>
                 </aside>
                         <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -959,14 +959,14 @@ the cache</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1002,14 +1002,14 @@ the cache</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1063,14 +1063,14 @@ the cache</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>This function always returns true.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1114,14 +1114,14 @@ the cache</p>
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Returns false if failing to retrieve cache entry or the cached data otherwise.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1165,14 +1165,14 @@ the cache</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True on successful removal, false on failure.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1232,14 +1232,14 @@ Props to Elliott Stocks</p>
                                     <h4>Returns</h4>
                     null|string|\WP_Post
                                             &mdash; <p>Post object if successful. Null if global $post is not set. Empty string if no corresponding post exists.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1283,14 +1283,14 @@ Props to Elliott Stocks</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1326,14 +1326,14 @@ Props to Elliott Stocks</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1377,14 +1377,14 @@ use like this:</em></p>
                 
                                     <h4>Returns</h4>
                     boolean|false|mixed|string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href=""><span class="namespace-wrapper">\wp_count_comments()</span></a></dd>
                                                                 </dl>
@@ -1414,14 +1414,14 @@ use like this:</em></p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1449,14 +1449,14 @@ use like this:</em></p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1484,14 +1484,14 @@ use like this:</em></p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1527,14 +1527,14 @@ use like this:</em></p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1580,14 +1580,14 @@ use like this:</em></p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1616,14 +1616,14 @@ These then cause really slow lookups inside of wp_old_slug_redirect, since wp_ol
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1651,14 +1651,14 @@ These then cause really slow lookups inside of wp_old_slug_redirect, since wp_ol
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-caching.html"><div class="path-wrapper">vip-helpers/vip-caching.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1725,7 +1725,7 @@ These then cause really slow lookups inside of wp_old_slug_redirect, since wp_ol
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 27th, 2020 at 16:22.
+                    on January 27th, 2020 at 21:39.
                 </section>
             </section>
         </section>

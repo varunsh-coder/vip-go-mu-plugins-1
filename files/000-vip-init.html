@@ -24,7 +24,7 @@
         <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-455473815"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1668475609"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-455473815" class="accordion-body collapse in">
+            <div id="namespace-1668475609" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1187553134"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1702033072"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-1187553134" class="accordion-body collapse ">
+            <div id="namespace-1702033072" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1046911881"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1615483940"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-1046911881" class="accordion-body collapse ">
+            <div id="namespace-1615483940" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-636558627"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-811848994"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-636558627" class="accordion-body collapse ">
+            <div id="namespace-811848994" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -191,7 +191,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-793453999" class="accordion-body collapse ">
+            <div id="namespace-1812652720" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -207,7 +207,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-1638737402" class="accordion-body collapse ">
+            <div id="namespace-1104661153" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -299,7 +299,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_A8C_PROXIED_REQUEST" name="constant_A8C_PROXIED_REQUEST" class="anchor"></a>
             <article id="constant_A8C_PROXIED_REQUEST" class="constant">
                 <h3 class="">A8C_PROXIED_REQUEST</h3>
-                <pre class="signature">A8C_PROXIED_REQUEST</pre>
+                <pre class="signature">A8C_PROXIED_REQUEST = false : \constant</pre>
                 <p><em></em></p>
                 
             </article>
@@ -317,7 +317,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -329,7 +329,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_VIP_GO_ENV" name="constant_VIP_GO_ENV" class="anchor"></a>
             <article id="constant_VIP_GO_ENV" class="constant">
                 <h3 class="">VIP_GO_ENV</h3>
-                <pre class="signature">VIP_GO_ENV</pre>
+                <pre class="signature">VIP_GO_ENV = false</pre>
                 <p><em></em></p>
                 
             </article>
@@ -347,7 +347,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             constant
                         </th>
                         <td>
-                                                            <p>VIP_GO_ENV The name of the current VIP Go environment. Falls back to <code>false</code>.</p>
+                                                                                            <p>VIP_GO_ENV The name of the current VIP Go environment. Falls back to <code>false</code>.</p>
                                                     </td>
                     </tr>
                                     <tr>
@@ -355,7 +355,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -367,7 +367,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_IS_VIP_ENV" name="constant_WPCOM_IS_VIP_ENV" class="anchor"></a>
             <article id="constant_WPCOM_IS_VIP_ENV" class="constant">
                 <h3 class="">WPCOM_IS_VIP_ENV</h3>
-                <pre class="signature">WPCOM_IS_VIP_ENV</pre>
+                <pre class="signature">WPCOM_IS_VIP_ENV = false</pre>
                 <p><em></em></p>
                 
             </article>
@@ -385,7 +385,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -397,7 +397,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_SANDBOXED" name="constant_WPCOM_SANDBOXED" class="anchor"></a>
             <article id="constant_WPCOM_SANDBOXED" class="constant">
                 <h3 class="">WPCOM_SANDBOXED</h3>
-                <pre class="signature">WPCOM_SANDBOXED</pre>
+                <pre class="signature">WPCOM_SANDBOXED = false !== strpos(gethostname(), &#039;_web_dev_&#039;)</pre>
                 <p><em></em></p>
                 
             </article>
@@ -415,7 +415,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -427,7 +427,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_VIP_GO_IS_CLI_CONTAINER" name="constant_VIP_GO_IS_CLI_CONTAINER" class="anchor"></a>
             <article id="constant_VIP_GO_IS_CLI_CONTAINER" class="constant">
                 <h3 class="">VIP_GO_IS_CLI_CONTAINER</h3>
-                <pre class="signature">VIP_GO_IS_CLI_CONTAINER</pre>
+                <pre class="signature">VIP_GO_IS_CLI_CONTAINER = false !== strpos(gethostname(), &#039;_wpcli_&#039;)</pre>
                 <p><em></em></p>
                 
             </article>
@@ -445,7 +445,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -457,7 +457,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_MAIL_TRACKING_KEY" name="constant_WPCOM_VIP_MAIL_TRACKING_KEY" class="anchor"></a>
             <article id="constant_WPCOM_VIP_MAIL_TRACKING_KEY" class="constant">
                 <h3 class="">WPCOM_VIP_MAIL_TRACKING_KEY</h3>
-                <pre class="signature">WPCOM_VIP_MAIL_TRACKING_KEY</pre>
+                <pre class="signature">WPCOM_VIP_MAIL_TRACKING_KEY = false</pre>
                 <p><em></em></p>
                 
             </article>
@@ -475,7 +475,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -487,7 +487,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_CLIENT_MU_PLUGIN_DIR" name="constant_WPCOM_VIP_CLIENT_MU_PLUGIN_DIR" class="anchor"></a>
             <article id="constant_WPCOM_VIP_CLIENT_MU_PLUGIN_DIR" class="constant">
                 <h3 class="">WPCOM_VIP_CLIENT_MU_PLUGIN_DIR</h3>
-                <pre class="signature">WPCOM_VIP_CLIENT_MU_PLUGIN_DIR</pre>
+                <pre class="signature">WPCOM_VIP_CLIENT_MU_PLUGIN_DIR = WP_CONTENT_DIR . &#039;/client-mu-plugins&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -505,7 +505,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -517,7 +517,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_PRIVATE_DIR" name="constant_WPCOM_VIP_PRIVATE_DIR" class="anchor"></a>
             <article id="constant_WPCOM_VIP_PRIVATE_DIR" class="constant">
                 <h3 class="">WPCOM_VIP_PRIVATE_DIR</h3>
-                <pre class="signature">WPCOM_VIP_PRIVATE_DIR</pre>
+                <pre class="signature">WPCOM_VIP_PRIVATE_DIR = $private_dir_path</pre>
                 <p><em></em></p>
                 
             </article>
@@ -535,7 +535,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -547,7 +547,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_MACHINE_USER_LOGIN" name="constant_WPCOM_VIP_MACHINE_USER_LOGIN" class="anchor"></a>
             <article id="constant_WPCOM_VIP_MACHINE_USER_LOGIN" class="constant">
                 <h3 class="">WPCOM_VIP_MACHINE_USER_LOGIN</h3>
-                <pre class="signature">WPCOM_VIP_MACHINE_USER_LOGIN</pre>
+                <pre class="signature">WPCOM_VIP_MACHINE_USER_LOGIN = &#039;vip&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -565,7 +565,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -577,7 +577,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_MACHINE_USER_NAME" name="constant_WPCOM_VIP_MACHINE_USER_NAME" class="anchor"></a>
             <article id="constant_WPCOM_VIP_MACHINE_USER_NAME" class="constant">
                 <h3 class="">WPCOM_VIP_MACHINE_USER_NAME</h3>
-                <pre class="signature">WPCOM_VIP_MACHINE_USER_NAME</pre>
+                <pre class="signature">WPCOM_VIP_MACHINE_USER_NAME = &#039;VIP&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -595,7 +595,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -607,7 +607,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_MACHINE_USER_EMAIL" name="constant_WPCOM_VIP_MACHINE_USER_EMAIL" class="anchor"></a>
             <article id="constant_WPCOM_VIP_MACHINE_USER_EMAIL" class="constant">
                 <h3 class="">WPCOM_VIP_MACHINE_USER_EMAIL</h3>
-                <pre class="signature">WPCOM_VIP_MACHINE_USER_EMAIL</pre>
+                <pre class="signature">WPCOM_VIP_MACHINE_USER_EMAIL = &#039;donotreply@wordpress.com&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -625,7 +625,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -637,7 +637,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_MACHINE_USER_ROLE" name="constant_WPCOM_VIP_MACHINE_USER_ROLE" class="anchor"></a>
             <article id="constant_WPCOM_VIP_MACHINE_USER_ROLE" class="constant">
                 <h3 class="">WPCOM_VIP_MACHINE_USER_ROLE</h3>
-                <pre class="signature">WPCOM_VIP_MACHINE_USER_ROLE</pre>
+                <pre class="signature">WPCOM_VIP_MACHINE_USER_ROLE = &#039;administrator&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -655,7 +655,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -667,7 +667,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_WPCOM_VIP_MACHINE_USER_ID" name="constant_WPCOM_VIP_MACHINE_USER_ID" class="anchor"></a>
             <article id="constant_WPCOM_VIP_MACHINE_USER_ID" class="constant">
                 <h3 class="">WPCOM_VIP_MACHINE_USER_ID</h3>
-                <pre class="signature">WPCOM_VIP_MACHINE_USER_ID</pre>
+                <pre class="signature">WPCOM_VIP_MACHINE_USER_ID = $user-&gt;ID</pre>
                 <p><em></em></p>
                 
             </article>
@@ -685,7 +685,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -697,7 +697,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_VIP_JETPACK_CONNECTION_PILOT_SHOULD_RUN" name="constant_VIP_JETPACK_CONNECTION_PILOT_SHOULD_RUN" class="anchor"></a>
             <article id="constant_VIP_JETPACK_CONNECTION_PILOT_SHOULD_RUN" class="constant">
                 <h3 class="">VIP_JETPACK_CONNECTION_PILOT_SHOULD_RUN</h3>
-                <pre class="signature">VIP_JETPACK_CONNECTION_PILOT_SHOULD_RUN</pre>
+                <pre class="signature">VIP_JETPACK_CONNECTION_PILOT_SHOULD_RUN = false</pre>
                 <p><em></em></p>
                 
             </article>
@@ -715,7 +715,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -727,7 +727,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_VIP_JETPACK_CONNECTION_PILOT_SHOULD_RECONNECT" name="constant_VIP_JETPACK_CONNECTION_PILOT_SHOULD_RECONNECT" class="anchor"></a>
             <article id="constant_VIP_JETPACK_CONNECTION_PILOT_SHOULD_RECONNECT" class="constant">
                 <h3 class="">VIP_JETPACK_CONNECTION_PILOT_SHOULD_RECONNECT</h3>
-                <pre class="signature">VIP_JETPACK_CONNECTION_PILOT_SHOULD_RECONNECT</pre>
+                <pre class="signature">VIP_JETPACK_CONNECTION_PILOT_SHOULD_RECONNECT = false</pre>
                 <p><em></em></p>
                 
             </article>
@@ -745,7 +745,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -757,7 +757,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_CRON_CONTROL_ADDITIONAL_INTERNAL_EVENTS" name="constant_CRON_CONTROL_ADDITIONAL_INTERNAL_EVENTS" class="anchor"></a>
             <article id="constant_CRON_CONTROL_ADDITIONAL_INTERNAL_EVENTS" class="constant">
                 <h3 class="">CRON_CONTROL_ADDITIONAL_INTERNAL_EVENTS</h3>
-                <pre class="signature">CRON_CONTROL_ADDITIONAL_INTERNAL_EVENTS</pre>
+                <pre class="signature">CRON_CONTROL_ADDITIONAL_INTERNAL_EVENTS = $internal_cron_events</pre>
                 <p><em></em></p>
                 
             </article>
@@ -775,7 +775,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -787,7 +787,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
             <a id="constant_FS_METHOD" name="constant_FS_METHOD" class="anchor"></a>
             <article id="constant_FS_METHOD" class="constant">
                 <h3 class="">FS_METHOD</h3>
-                <pre class="signature">FS_METHOD</pre>
+                <pre class="signature">FS_METHOD = &#039;direct&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -805,7 +805,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -864,7 +864,7 @@ License: GPL version 2 or later - <a href="http://www.gnu.org/licenses/old-licen
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 27th, 2020 at 16:22.
+                    on January 27th, 2020 at 21:39.
                 </section>
             </section>
         </section>

@@ -24,7 +24,7 @@
     <script type="text/javascript">
     function loadExternalCodeSnippets() {
         Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-            var src = pre.getAttribute('data-src');
+            var src = pre.getAttribute('data-src').replace( /\\/g, '/');
             var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
             var language = 'php';
 
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1031651820"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1967503693"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1031651820" class="accordion-body collapse in">
+            <div id="namespace-1967503693" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2129504455"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-396070122"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-2129504455" class="accordion-body collapse ">
+            <div id="namespace-396070122" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-757604448"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-947649282"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-757604448" class="accordion-body collapse ">
+            <div id="namespace-947649282" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1186030447"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1466128194"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-1186030447" class="accordion-body collapse ">
+            <div id="namespace-1466128194" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -191,7 +191,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-1570195410" class="accordion-body collapse ">
+            <div id="namespace-819870879" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -207,7 +207,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-1087181465" class="accordion-body collapse ">
+            <div id="namespace-1039066038" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -371,7 +371,7 @@
                         
                         
                         
-                        
+                                                
                                                                         </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
@@ -393,7 +393,7 @@
             <a id="constant_COOKIE_NOCACHE" name="constant_COOKIE_NOCACHE" class="anchor"></a>
             <article id="constant_COOKIE_NOCACHE" class="constant">
                 <h3 class="">COOKIE_NOCACHE</h3>
-                <pre class="signature">COOKIE_NOCACHE</pre>
+                <pre class="signature">COOKIE_NOCACHE = &#039;vip-go-cb&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -414,7 +414,7 @@
             <a id="constant_COOKIE_SEGMENT" name="constant_COOKIE_SEGMENT" class="anchor"></a>
             <article id="constant_COOKIE_SEGMENT" class="constant">
                 <h3 class="">COOKIE_SEGMENT</h3>
-                <pre class="signature">COOKIE_SEGMENT</pre>
+                <pre class="signature">COOKIE_SEGMENT = &#039;vip-go-seg&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -435,7 +435,7 @@
             <a id="constant_COOKIE_AUTH" name="constant_COOKIE_AUTH" class="anchor"></a>
             <article id="constant_COOKIE_AUTH" class="constant">
                 <h3 class="">COOKIE_AUTH</h3>
-                <pre class="signature">COOKIE_AUTH</pre>
+                <pre class="signature">COOKIE_AUTH = &#039;vip-go-auth&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -456,7 +456,7 @@
             <a id="constant_HEADER_AUTH" name="constant_HEADER_AUTH" class="anchor"></a>
             <article id="constant_HEADER_AUTH" class="constant">
                 <h3 class="">HEADER_AUTH</h3>
-                <pre class="signature">HEADER_AUTH</pre>
+                <pre class="signature">HEADER_AUTH = &#039;HTTP_X_VIP_GO_AUTH&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -477,7 +477,7 @@
             <a id="constant_GROUP_SEPARATOR" name="constant_GROUP_SEPARATOR" class="anchor"></a>
             <article id="constant_GROUP_SEPARATOR" class="constant">
                 <h3 class="">GROUP_SEPARATOR</h3>
-                <pre class="signature">GROUP_SEPARATOR</pre>
+                <pre class="signature">GROUP_SEPARATOR = &#039;---__&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -498,7 +498,7 @@
             <a id="constant_VALUE_SEPARATOR" name="constant_VALUE_SEPARATOR" class="anchor"></a>
             <article id="constant_VALUE_SEPARATOR" class="constant">
                 <h3 class="">VALUE_SEPARATOR</h3>
-                <pre class="signature">VALUE_SEPARATOR</pre>
+                <pre class="signature">VALUE_SEPARATOR = &#039;_--_&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -519,7 +519,7 @@
             <a id="constant_VERSION_PREFIX" name="constant_VERSION_PREFIX" class="anchor"></a>
             <article id="constant_VERSION_PREFIX" class="constant">
                 <h3 class="">VERSION_PREFIX</h3>
-                <pre class="signature">VERSION_PREFIX</pre>
+                <pre class="signature">VERSION_PREFIX = &#039;vc-v1__&#039;</pre>
                 <p><em></em></p>
                 
             </article>
@@ -568,7 +568,7 @@
                             since
                         </th>
                         <td>
-                                                            
+                                                            1.0.0                                
                                                     </td>
                     </tr>
                             </table>
@@ -599,7 +599,7 @@
                             since
                         </th>
                         <td>
-                                                            
+                                                            1.0.0                                
                                                     </td>
                     </tr>
                             </table>
@@ -630,7 +630,7 @@
                             since
                         </th>
                         <td>
-                                                            
+                                                            1.0.0                                
                                                     </td>
                     </tr>
                             </table>
@@ -661,7 +661,7 @@
                             since
                         </th>
                         <td>
-                                                            
+                                                            1.0.0                                
                                                     </td>
                     </tr>
                             </table>
@@ -692,7 +692,7 @@
                             since
                         </th>
                         <td>
-                                                            
+                                                            1.0.0                                
                                                     </td>
                     </tr>
                             </table>
@@ -723,7 +723,7 @@
                             since
                         </th>
                         <td>
-                                                            
+                                                            1.0.0                                
                                                     </td>
                     </tr>
                             </table>
@@ -754,7 +754,7 @@
                             since
                         </th>
                         <td>
-                                                            
+                                                            1.0.0                                
                                                     </td>
                     </tr>
                             </table>
@@ -782,14 +782,16 @@
                 
                                     <h4>Returns</h4>
                     boolean
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -818,14 +820,16 @@
                 
                                     <h4>Returns</h4>
                     boolean|\WP_Error
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -854,14 +858,16 @@
                 
                                     <h4>Returns</h4>
                     boolean|\WP_Error
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -888,14 +894,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -915,14 +923,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -952,14 +962,16 @@
                 
                                     <h4>Returns</h4>
                     boolean
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -996,14 +1008,16 @@
                 
                                     <h4>Returns</h4>
                     boolean
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1045,14 +1059,16 @@
                 
                                     <h4>Returns</h4>
                     \WP_Error|boolean
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1090,14 +1106,16 @@
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True on success. False on failure.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1140,14 +1158,16 @@
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True on success. False on failure.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1177,14 +1197,16 @@
                                     <h4>Returns</h4>
                     array
                                             &mdash; <p>user's group-value pairs</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1213,14 +1235,16 @@
                 
                                     <h4>Returns</h4>
                     \WP_Error|null
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1250,14 +1274,16 @@
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>true if encryption is set for this request</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1284,14 +1310,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1326,14 +1354,16 @@
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1360,14 +1390,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr>
@@ -1394,14 +1426,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1421,14 +1455,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1448,14 +1484,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1491,14 +1529,16 @@
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>encrypted version of string</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1534,14 +1574,16 @@
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>decrypted version of string</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1561,14 +1603,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1588,14 +1632,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1618,14 +1664,16 @@
                                     <h4>Returns</h4>
                     null|string
                                             &mdash; <p>A string representation of the groups</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1648,14 +1696,16 @@
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Was at least one cookie set?</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1675,14 +1725,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1702,14 +1754,16 @@
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1732,14 +1786,16 @@
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Was at least one cookie set?</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1772,14 +1828,16 @@
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1807,14 +1865,16 @@
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1844,14 +1904,16 @@
                 
                                     <h4>Returns</h4>
                     \WP_Error|boolean
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                             <span class="label label-info">static</span>
                                                             <dl>
-                                                                            </dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Automattic.VIP.Cache.Vary_Cache.html"><div class="path-wrapper">\Automattic\VIP\Cache\Vary_Cache</div></a></dd>
+                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1909,7 +1971,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 27th, 2020 at 16:22.
+                    on January 27th, 2020 at 21:39.
                 </section>
             </section>
         </section>

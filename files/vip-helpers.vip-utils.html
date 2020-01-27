@@ -24,7 +24,7 @@
         <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-2097732751"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-213295496"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-2097732751" class="accordion-body collapse in">
+            <div id="namespace-213295496" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-266720303"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-507103940"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-266720303" class="accordion-body collapse ">
+            <div id="namespace-507103940" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-544353540"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1578051210"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-544353540" class="accordion-body collapse ">
+            <div id="namespace-1578051210" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1351067592"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1962739635"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-1351067592" class="accordion-body collapse ">
+            <div id="namespace-1962739635" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -191,7 +191,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-1825803887" class="accordion-body collapse ">
+            <div id="namespace-218028488" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -207,7 +207,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-281444504" class="accordion-body collapse ">
+            <div id="namespace-532648185" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -296,7 +296,7 @@
             <a id="constant_WPCOM_VIP_DISABLE_SHARED_PLUGINS" name="constant_WPCOM_VIP_DISABLE_SHARED_PLUGINS" class="anchor"></a>
             <article id="constant_WPCOM_VIP_DISABLE_SHARED_PLUGINS" class="constant">
                 <h3 class="">WPCOM_VIP_DISABLE_SHARED_PLUGINS</h3>
-                <pre class="signature">WPCOM_VIP_DISABLE_SHARED_PLUGINS</pre>
+                <pre class="signature">WPCOM_VIP_DISABLE_SHARED_PLUGINS = true</pre>
                 <p><em></em></p>
                 
             </article>
@@ -314,7 +314,7 @@
                             package
                         </th>
                         <td>
-                                                            <p>Default</p>
+                                                                                            <p>Default</p>
                                                     </td>
                     </tr>
                             </table>
@@ -359,14 +359,14 @@
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -404,14 +404,14 @@
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -444,14 +444,14 @@ unwanted errors.</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>The URI</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -489,14 +489,14 @@ unwanted errors.</p>
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -535,14 +535,14 @@ unwanted errors.</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>HTML</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -586,14 +586,14 @@ unwanted errors.</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>HTML</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/code-and-theme-review-process/"><span class="namespace-wrapper">Code Review</span></a></dd>
                                             <dd><a href="http://vip.wordpress.com/documentation/powered-by-wordpress-com-vip/"><span class="namespace-wrapper">Powered By WordPress.com VIP</span></a></dd>
@@ -626,14 +626,14 @@ unwanted errors.</p>
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -661,14 +661,14 @@ unwanted errors.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/allow-contributors-to-upload-images/"><span class="namespace-wrapper">Allow Contributors to Upload Images</span></a></dd>
                                                                 </dl>
@@ -706,14 +706,14 @@ unwanted errors.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/allow-contributors-to-upload-images/"><span class="namespace-wrapper">Allow Contributors to Upload Images</span></a></dd>
                                                                                                     <dd><a href="../namespaces/default.html#function_vip_contrib_add_upload_cap"><span class="namespace-wrapper">\vip_contrib_add_upload_cap()</span></a></dd>
@@ -771,14 +771,14 @@ unwanted errors.</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>URL of the resized attachmen</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/image-resizing-and-cropping/"><span class="namespace-wrapper">http://vip.wordpress.com/documentation/image-resizing-and-cropping/</span></a></dd>
                                                                 </dl>
@@ -816,14 +816,14 @@ unwanted errors.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -851,14 +851,14 @@ unwanted errors.</p>
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -888,14 +888,14 @@ It also assists having consistent CSS containers between development and product
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -923,14 +923,14 @@ It also assists having consistent CSS containers between development and product
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -958,14 +958,14 @@ It also assists having consistent CSS containers between development and product
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -993,14 +993,14 @@ It also assists having consistent CSS containers between development and product
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1029,14 +1029,14 @@ It also assists having consistent CSS containers between development and product
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1064,14 +1064,14 @@ It also assists having consistent CSS containers between development and product
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1099,14 +1099,14 @@ It also assists having consistent CSS containers between development and product
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href=""><span class="namespace-wrapper">\show_live_chat()</span></a></dd>
                                                                 </dl>
@@ -1147,14 +1147,14 @@ Now they can be frustrated in their local environments as well :)</p>
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://www.shauninman.com/post/heap/2006/08/22/widont_wordpress_plugin"><span class="namespace-wrapper">Typesetting widows</span></a></dd>
                                                                 </dl>
@@ -1197,14 +1197,14 @@ Now they can be frustrated in their local environments as well :)</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1245,14 +1245,14 @@ Now they can be frustrated in their local environments as well :)</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1293,14 +1293,14 @@ Now they can be frustrated in their local environments as well :)</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1341,14 +1341,14 @@ Now they can be frustrated in their local environments as well :)</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1390,14 +1390,14 @@ Using regex to do this simple check would add lots of overhead.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1445,14 +1445,14 @@ Using regex to do this simple check would add lots of overhead.</p>
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1514,14 +1514,14 @@ function makes blocking requests (stops page generation and waits for the respon
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>The remote file's contents (cached)</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://lobby.vip.wordpress.com/best-practices/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
                                                                 </dl>
@@ -1560,14 +1560,14 @@ function makes blocking requests (stops page generation and waits for the respon
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/redirect-the-feed-to-feedburner/"><span class="namespace-wrapper">Redirect the Feed To Feedburner</span></a></dd>
                                                                 </dl>
@@ -1608,14 +1608,14 @@ function makes blocking requests (stops page generation and waits for the respon
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Returns true if main feed is requested</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1654,14 +1654,14 @@ function makes blocking requests (stops page generation and waits for the respon
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Returns true if the current visitor has a feed service user agent.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1697,14 +1697,14 @@ function makes blocking requests (stops page generation and waits for the respon
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1740,14 +1740,14 @@ function makes blocking requests (stops page generation and waits for the respon
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="../namespaces/default.html#function_vip_crossdomain_redirect"><span class="namespace-wrapper">\vip_crossdomain_redirect()</span></a></dd>
                                                                 </dl>
@@ -1804,14 +1804,14 @@ This function is an alternative method for getting random posts, though it's not
                 
                                     <h4>Returns</h4>
                     array
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -1875,14 +1875,14 @@ This function is an alternative method for getting random posts, though it's not
                                     <h4>Returns</h4>
                     string|\WP_Error|array
                                             &mdash; <p>Array of results. If fail counter is met, returns the $fallback_value, otherwise return WP_Error.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
                                                                                                     <dd><a href=""><span class="namespace-wrapper">\wp_remote_request()</span></a></dd>
@@ -1946,14 +1946,14 @@ This function is an alternative method for getting random posts, though it's not
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="http://vip.wordpress.com/documentation/fetching-remote-data/"><span class="namespace-wrapper">Fetching Remote Data</span></a></dd>
                                                                                                     <dd><a href="../namespaces/default.html#function_vip_safe_wp_remote_request"><span class="namespace-wrapper">\vip_safe_wp_remote_request()</span></a></dd>
@@ -1996,14 +1996,14 @@ This function is an alternative method for getting random posts, though it's not
                                     <h4>Returns</h4>
                     false|array
                                             &mdash; <p>Profile info formatted as noted here: <a href="http://en.gravatar.com/site/implement/profiles/php/">http://en.gravatar.com/site/implement/profiles/php/</a>. If user not found, returns false.</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2042,14 +2042,14 @@ This function is an alternative method for getting random posts, though it's not
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Returns true if $email has a gravatar</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2093,14 +2093,14 @@ This function is an alternative method for getting random posts, though it's not
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Returns true if $url is in the $whitelisted_domains</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2136,14 +2136,14 @@ This function is an alternative method for getting random posts, though it's not
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2193,14 +2193,14 @@ places, such as sidebars.</p>
                 
                                     <h4>Returns</h4>
                     string
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2239,14 +2239,14 @@ places, such as sidebars.</p>
                                     <h4>Returns</h4>
                     string
                                             &mdash; <p>Sanitized folder name</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2297,14 +2297,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True if the include was successful</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2342,14 +2342,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
                 
                                     <h4>Returns</h4>
                     boolean
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2377,14 +2377,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2420,14 +2420,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href="../namespaces/default.html#function_wpcom_vip_load_plugin"><span class="namespace-wrapper">\wpcom_vip_load_plugin()</span></a></dd>
                                                                 </dl>
@@ -2459,14 +2459,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
                 
                                     <h4>Returns</h4>
                     array
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2504,14 +2504,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
                 
                                     <h4>Returns</h4>
                     boolean
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2539,14 +2539,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2574,14 +2574,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
 
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2619,14 +2619,14 @@ plugin file name (such as wp-api/plugin.php), relative to either the VIP shared-
                 
                                     <h4>Returns</h4>
                     true
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2670,14 +2670,14 @@ for that.</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True, if user is an Automattician, otherwise false</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href=""><span class="namespace-wrapper">\is_proxied_automattician</span></a></dd>
                                                                 </dl>
@@ -2712,14 +2712,14 @@ is an Automattician.</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True, if the current request is made via the Automattic proxy</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                                             <dt>See also</dt>
                                                                 <dd><a href=""><span class="namespace-wrapper">\is_automattician</span></a></dd>
                                                                 </dl>
@@ -2752,14 +2752,14 @@ is an Automattician.</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>True if the current request is made using the Automattic proxy</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2791,14 +2791,14 @@ is an Automattician.</p>
                                     <h4>Returns</h4>
                     boolean
                                             &mdash; <p>Bool indicating if the current request came from JP servers</p>
-                                    				
+                                    
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2866,14 +2866,14 @@ wpcom_vip_irc( 'testing', 'test message', 4 );      // have &quot;a8c-test&quot;
                                             </table>
                 
                 
-                				
+                
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
                                     <dt>File</dt>
-                    <dd><a href=""><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
+                    <dd><a href="../files/vip-helpers.vip-utils.html"><div class="path-wrapper">vip-helpers/vip-utils.php</div></a></dd>
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
@@ -2940,7 +2940,7 @@ wpcom_vip_irc( 'testing', 'test message', 4 );      // have &quot;a8c-test&quot;
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on January 27th, 2020 at 16:22.
+                    on January 27th, 2020 at 21:39.
                 </section>
             </section>
         </section>
