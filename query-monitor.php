@@ -34,9 +34,9 @@
  * Determines if Query Monitor should be enabled. We don't
  * want to load it if we don't have to.
  *
+ *  - If a QM_COOKIE is detected, Query Monitor is enabled.
  *  - If logged-in user has the `view_query_monitor`
  *    capability, Query Monitor is enabled.
- *  - If a QM_COOKIE is detected, Query Monitor is enabled.
  *
  * Note that we have to set the value for QM_COOKIE here,
  * in order to detect it.
@@ -44,7 +44,7 @@
  * Note that we cannot use is_automattician this early, as
  * the user has not yet been set.
  *
- * @param $enable
+ * @param bool $enable
  *
  * @return bool
  */
@@ -54,12 +54,12 @@ function wpcom_vip_qm_enable( $enable ) {
 		define( 'QM_COOKIE', 'query_monitor_' . COOKIEHASH );
 	}
 
-	if ( current_user_can( 'view_query_monitor' ) ) {
-		return true;
-	}
-
 	// We're not validating the cookie here as QM will do that later
 	if ( isset( $_COOKIE[ QM_COOKIE ] ) ) {
+		return true;
+	}
+	
+	if ( current_user_can( 'view_query_monitor' ) ) {
 		return true;
 	}
 
