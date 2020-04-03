@@ -125,6 +125,10 @@ define( 'VIP_JETPACK_DEFAULT_PLAN', array(
 			'polldaddy' => array (
 				'jetpack_business_monthly',
 			),
+			'search' => array (
+				'jetpack_search',
+				'jetpack_search_monthly',
+			),
 		),
 	),
 ) );
