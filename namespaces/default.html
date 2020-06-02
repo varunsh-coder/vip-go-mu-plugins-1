@@ -96,37 +96,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-655769042"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-129338619"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-655769042" class="accordion-body collapse in">
+            <div id="namespace-129338619" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1443967989"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-667839998"></a>
                                 <a href="../namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-1443967989" class="accordion-body collapse ">
+            <div id="namespace-667839998" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1278035485"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-629299396"></a>
                                 <a href="../namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-1278035485" class="accordion-body collapse ">
+            <div id="namespace-629299396" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-636494499"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-495234898"></a>
                                 <a href="../namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-636494499" class="accordion-body collapse ">
+            <div id="namespace-495234898" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -143,7 +143,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-1765978793" class="accordion-body collapse ">
+            <div id="namespace-632981461" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -159,7 +159,7 @@
             <div class="accordion-heading">
                                 <a href="../namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-90859376" class="accordion-body collapse ">
+            <div id="namespace-483681288" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -8995,9 +8995,11 @@ wpcom_vip_load_tag_base( 'section' );</p>
                 <h3 class=" ">wpcom_vip_maybe_skip_old_slug_redirect()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">wpcom_vip_maybe_skip_old_slug_redirect() </pre>
-                <p><em>We&#039;re seeing an increase of urls that match this pattern: http://example.com/http://othersite.com/random_text
-These then cause really slow lookups inside of wp_old_slug_redirect, since wp_old_slug redirect does not match on full urls but rather former slugs it&#039;s safe to skip the lookup for these. (Most of the calls are from bad ad providers that generate random urls)</em></p>
-                
+                <p><em>Potentially skip redirect for old slugs.</em></p>
+                <p>We're seeing an increase of URLs that match this pattern: <a href="http://example.com/http://othersite.com/random_text">http://example.com/http://othersite.com/random_text</a>.</p>
+<p>These then cause really slow lookups inside of wp_old_slug_redirect. Since wp_old_slug redirect does not match
+on full URLs but rather former slugs, it's safe to skip the lookup for these. Most of the calls are from bad ad
+providers that generate random URLs.</p>
 
                 
                 
@@ -10885,7 +10887,7 @@ places, such as sidebars.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on June 2nd, 2020 at 18:15.
+                    on June 2nd, 2020 at 18:56.
                 </section>
             </section>
         </section>
