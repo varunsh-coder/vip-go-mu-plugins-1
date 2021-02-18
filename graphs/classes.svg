@@ -105,45 +105,45 @@
 <polygon fill="none" stroke="black" points="870.458,-160 651.458,-160 651.458,-124 870.458,-124 870.458,-160"/>
 <text text-anchor="middle" x="760.958" y="-139.2" font-family="Courier,monospace" font-size="11.00">VIP_Suspend_Cache_Invalidation</text>
 </g>
+<!-- \\VIP_Backup_User_Role_CLI -->
+<g id="node9" class="node"><title>\\VIP_Backup_User_Role_CLI</title>
+<polygon fill="none" stroke="black" points="850.458,-106 671.458,-106 671.458,-70 850.458,-70 850.458,-106"/>
+<text text-anchor="middle" x="760.958" y="-85.2" font-family="Courier,monospace" font-size="11.00">VIP_Backup_User_Role_CLI</text>
+</g>
 <!-- \\WPCOM_VIP_CLI_Command -->
-<g id="node9" class="node"><title>\\WPCOM_VIP_CLI_Command</title>
-<polygon fill="none" stroke="black" points="505.62,-52 347.62,-52 347.62,-16 505.62,-16 505.62,-52"/>
-<text text-anchor="middle" x="426.62" y="-31.2" font-family="Courier,monospace" font-size="11.00">WPCOM_VIP_CLI_Command</text>
+<g id="node10" class="node"><title>\\WPCOM_VIP_CLI_Command</title>
+<polygon fill="none" stroke="black" points="505.62,-106 347.62,-106 347.62,-70 505.62,-70 505.62,-106"/>
+<text text-anchor="middle" x="426.62" y="-85.2" font-family="Courier,monospace" font-size="11.00">WPCOM_VIP_CLI_Command</text>
+</g>
+<!-- \\VIP_Backup_User_Role_CLI&#45;&gt;\\WPCOM_VIP_CLI_Command -->
+<g id="edge7" class="edge"><title>\\VIP_Backup_User_Role_CLI&#45;&gt;\\WPCOM_VIP_CLI_Command</title>
+<path fill="none" stroke="black" d="M671.334,-88C623.224,-88 563.934,-88 515.88,-88"/>
+<polygon fill="none" stroke="black" points="515.804,-84.5001 505.804,-88 515.804,-91.5001 515.804,-84.5001"/>
 </g>
 <!-- WP_CLI_Command -->
 <g id="node14" class="node"><title>WP_CLI_Command</title>
-<ellipse fill="none" stroke="black" cx="117.391" cy="-34" rx="101.282" ry="18"/>
-<text text-anchor="middle" x="117.391" y="-30.3" font-family="Times,serif" font-size="14.00" fill="gray">WP_CLI_Command</text>
+<ellipse fill="none" stroke="black" cx="117.391" cy="-88" rx="101.282" ry="18"/>
+<text text-anchor="middle" x="117.391" y="-84.3" font-family="Times,serif" font-size="14.00" fill="gray">WP_CLI_Command</text>
 </g>
 <!-- \\WPCOM_VIP_CLI_Command&#45;&gt;WP_CLI_Command -->
-<g id="edge7" class="edge"><title>\\WPCOM_VIP_CLI_Command&#45;&gt;WP_CLI_Command</title>
-<path fill="none" stroke="black" d="M347.298,-34C311.476,-34 268.397,-34 229.32,-34"/>
-<polygon fill="none" stroke="black" points="228.949,-30.5001 218.949,-34 228.949,-37.5001 228.949,-30.5001"/>
+<g id="edge8" class="edge"><title>\\WPCOM_VIP_CLI_Command&#45;&gt;WP_CLI_Command</title>
+<path fill="none" stroke="black" d="M347.298,-88C311.476,-88 268.397,-88 229.32,-88"/>
+<polygon fill="none" stroke="black" points="228.949,-84.5001 218.949,-88 228.949,-91.5001 228.949,-84.5001"/>
 </g>
 <!-- \\WPCOM_VIP_QM_Collector_DB_Queries -->
-<g id="node10" class="node"><title>\\WPCOM_VIP_QM_Collector_DB_Queries</title>
-<polygon fill="none" stroke="black" points="880.458,-106 641.458,-106 641.458,-70 880.458,-70 880.458,-106"/>
-<text text-anchor="middle" x="760.958" y="-85.2" font-family="Courier,monospace" font-size="11.00">WPCOM_VIP_QM_Collector_DB_Queries</text>
+<g id="node11" class="node"><title>\\WPCOM_VIP_QM_Collector_DB_Queries</title>
+<polygon fill="none" stroke="black" points="880.458,-52 641.458,-52 641.458,-16 880.458,-16 880.458,-52"/>
+<text text-anchor="middle" x="760.958" y="-31.2" font-family="Courier,monospace" font-size="11.00">WPCOM_VIP_QM_Collector_DB_Queries</text>
 </g>
 <!-- QM_Collector_DB_Queries -->
 <g id="node15" class="node"><title>QM_Collector_DB_Queries</title>
-<ellipse fill="none" stroke="black" cx="426.62" cy="-88" rx="135.676" ry="18"/>
-<text text-anchor="middle" x="426.62" y="-84.3" font-family="Times,serif" font-size="14.00" fill="gray">QM_Collector_DB_Queries</text>
+<ellipse fill="none" stroke="black" cx="426.62" cy="-34" rx="135.676" ry="18"/>
+<text text-anchor="middle" x="426.62" y="-30.3" font-family="Times,serif" font-size="14.00" fill="gray">QM_Collector_DB_Queries</text>
 </g>
 <!-- \\WPCOM_VIP_QM_Collector_DB_Queries&#45;&gt;QM_Collector_DB_Queries -->
-<g id="edge8" class="edge"><title>\\WPCOM_VIP_QM_Collector_DB_Queries&#45;&gt;QM_Collector_DB_Queries</title>
-<path fill="none" stroke="black" d="M641.384,-88C619.137,-88 595.648,-88 572.704,-88"/>
-<polygon fill="none" stroke="black" points="572.56,-84.5001 562.56,-88 572.56,-91.5001 572.56,-84.5001"/>
-</g>
-<!-- \\VIP_Backup_User_Role_CLI -->
-<g id="node11" class="node"><title>\\VIP_Backup_User_Role_CLI</title>
-<polygon fill="none" stroke="black" points="850.458,-52 671.458,-52 671.458,-16 850.458,-16 850.458,-52"/>
-<text text-anchor="middle" x="760.958" y="-31.2" font-family="Courier,monospace" font-size="11.00">VIP_Backup_User_Role_CLI</text>
-</g>
-<!-- \\VIP_Backup_User_Role_CLI&#45;&gt;\\WPCOM_VIP_CLI_Command -->
-<g id="edge9" class="edge"><title>\\VIP_Backup_User_Role_CLI&#45;&gt;\\WPCOM_VIP_CLI_Command</title>
-<path fill="none" stroke="black" d="M671.334,-34C623.224,-34 563.934,-34 515.88,-34"/>
-<polygon fill="none" stroke="black" points="515.804,-30.5001 505.804,-34 515.804,-37.5001 515.804,-30.5001"/>
+<g id="edge9" class="edge"><title>\\WPCOM_VIP_QM_Collector_DB_Queries&#45;&gt;QM_Collector_DB_Queries</title>
+<path fill="none" stroke="black" d="M641.384,-34C619.137,-34 595.648,-34 572.704,-34"/>
+<polygon fill="none" stroke="black" points="572.56,-30.5001 562.56,-34 572.56,-37.5001 572.56,-30.5001"/>
 </g>
 </g>
 </svg>
