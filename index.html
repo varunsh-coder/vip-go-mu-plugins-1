@@ -96,37 +96,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-287137993"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1552911356"></a>
                                 <a href="namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-287137993" class="accordion-body collapse in">
+            <div id="namespace-1552911356" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-93926683"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1636568166"></a>
                                 <a href="namespaces/Automattic.html" style="margin-left: 30px; padding-left: 0">Automattic</a>
             </div>
-            <div id="namespace-93926683" class="accordion-body collapse ">
+            <div id="namespace-1636568166" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-181743517"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1867842074"></a>
                                 <a href="namespaces/Automattic.VIP.html" style="margin-left: 30px; padding-left: 0">VIP</a>
             </div>
-            <div id="namespace-181743517" class="accordion-body collapse ">
+            <div id="namespace-1867842074" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-82855525"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-899131091"></a>
                                 <a href="namespaces/Automattic.VIP.Cache.html" style="margin-left: 30px; padding-left: 0">Cache</a>
             </div>
-            <div id="namespace-82855525" class="accordion-body collapse ">
+            <div id="namespace-899131091" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -143,7 +143,7 @@
             <div class="accordion-heading">
                                 <a href="namespaces/Automattic.VIP.Migration.html" style="margin-left: 30px; padding-left: 0">Migration</a>
             </div>
-            <div id="namespace-1719040534" class="accordion-body collapse ">
+            <div id="namespace-1272793339" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -159,7 +159,7 @@
             <div class="accordion-heading">
                                 <a href="namespaces/Automattic.VIP.Proxy.html" style="margin-left: 30px; padding-left: 0">Proxy</a>
             </div>
-            <div id="namespace-1211672447" class="accordion-body collapse ">
+            <div id="namespace-700542016" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -449,7 +449,7 @@
             <a id="constant_VIP_GO_IS_CLI_CONTAINER" name="constant_VIP_GO_IS_CLI_CONTAINER" class="anchor"></a>
             <article id="constant_VIP_GO_IS_CLI_CONTAINER" class="constant">
                 <h3 class="">VIP_GO_IS_CLI_CONTAINER</h3>
-                <pre class="signature">VIP_GO_IS_CLI_CONTAINER = false !== strpos(gethostname(), &#039;_wpcli_&#039;) || false !== strpos(gethostname(), &#039;_wp_cli_&#039;)</pre>
+                <pre class="signature">VIP_GO_IS_CLI_CONTAINER = \Automattic\VIP\Environment::is_batch_container(gethostname(), $_ENV)</pre>
                 <p><em></em></p>
                 
             </article>
@@ -599,7 +599,7 @@
             <a id="constant_WPCOM_SANDBOXED" name="constant_WPCOM_SANDBOXED" class="anchor"></a>
             <article id="constant_WPCOM_SANDBOXED" class="constant">
                 <h3 class="">WPCOM_SANDBOXED</h3>
-                <pre class="signature">WPCOM_SANDBOXED = false !== strpos(gethostname(), &#039;_web_dev_&#039;)</pre>
+                <pre class="signature">WPCOM_SANDBOXED = \Automattic\VIP\Environment::is_sandbox_container(gethostname(), $_ENV)</pre>
                 <p><em></em></p>
                 
             </article>
@@ -11014,7 +11014,7 @@ places, such as sidebars.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on March 25th, 2021 at 18:48.
+                    on March 25th, 2021 at 19:16.
                 </section>
             </section>
         </section>
