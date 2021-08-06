@@ -70,7 +70,7 @@ job-references:
   install_core_tests_dependencies: &install_core_tests_dependencies
     name: "Install Dependencies"
     command: |
-      sudo apt-get update && sudo apt-get -y install subversion libgcc-8-dev default-mysql-client nodejs npm
+      sudo apt-get update && sudo apt-get -y install curl subversion libgcc-8-dev default-mysql-client nodejs npm
       sudo npm install npm@latest -g
       composer install -n
 
