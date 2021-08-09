@@ -19,6 +19,7 @@ function new_api_client() {
 class API_Client {
 	const DEFAULT_REQUEST_TIMEOUT = 10;
 
+	private $user_agent;
 	private $api_base;
 	private $files_site_id;
 	private $files_token;
@@ -34,6 +35,17 @@ class API_Client {
 
 		$this->files_site_id = $files_site_id;
 		$this->files_token = $files_token;
+
+		// Add some context to the UA to simplify debugging issues
+		if ( defined( 'DOING_CRON' ) && DOING_CRON ) {
+			// current_filter may not be totally accurate but still better than nothing
+			$current_context = sprintf( 'Cron (%s)', current_filter() );
+		} elseif ( defined( 'WP_CLI' ) && WP_CLI ) {
+			$current_context = 'WP_CLI';
+		} else {
+			$current_context = add_query_arg( [] );
+		}
+		$this->user_agent = sprintf( 'WPVIP/%s/Files;%s', get_bloginfo( 'version' ), esc_html( $current_context ) );
 
 		$this->cache = $cache;
 	}
@@ -68,31 +80,34 @@ class API_Client {
 
 		$timeout = $request_args['timeout'] ?? self::DEFAULT_REQUEST_TIMEOUT;
 
-		$request_args = [
-			'method' => $method,
-			'headers' => $headers,
-			'timeout' => $timeout,
-		];
+		$request_args = array_merge( $request_args, [
+			'method'     => $method,
+			'headers'    => $headers,
+			'timeout'    => $timeout,
+			'user-agent' => $this->user_agent,
+		] );
 
 		$response = wp_remote_request( $request_url, $request_args );
 
 		// Debug log
 		if ( defined( 'VIP_FILESYSTEM_STREAM_WRAPPER_DEBUG' ) &&
-		     true === constant( 'VIP_FILESYSTEM_STREAM_WRAPPER_DEBUG' ) )
-		{
+			true === constant( 'VIP_FILESYSTEM_STREAM_WRAPPER_DEBUG' ) ) {
 			$this->log_request( $path, $method, $request_args );
 		}
 
 		return $response;
 	}
 
-	// TODO: implement get_unique_filename()
-
 	public function upload_file( $local_path, $upload_path ) {
 		if ( ! file_exists( $local_path ) ) {
 			/* translators: 1: local file path 2: remote upload path */
 			return new WP_Error( 'upload_file-failed-invalid_path', sprintf( __( 'Failed to upload file `%1$s` to `%2$s`; the file does not exist.' ), $local_path, $upload_path ) );
 		}
+
+		// Clear stat caches for the file.
+		// The various stat-related functions below are cached.
+		// The cached values can then lead to unexpected behavior even after the file has changed (e.g. in Curl_Streamer).
+		clearstatcache( false, $local_path );
 
 		$file_size = filesize( $local_path );
 		$file_name = basename( $local_path );
@@ -139,7 +154,11 @@ class API_Client {
 
 		// response looks like {"filename":"/wp-content/uploads/path/to/file.ext"}
 		// save to cache
-		$this->cache->cache_file( $response_data->filename, file_get_contents( $local_path ) );
+		$this->cache->copy_to_cache( $response_data->filename, $local_path );
+
+		// Reset file stats cache, if any.
+		// Note: the ltrim is because we store the path without the leading slash but the API returns the path with it.
+		$this->cache->remove_stats( ltrim( $response_data->filename, '/' ) );
 
 		return $response_data->filename;
 	}
@@ -152,13 +171,21 @@ class API_Client {
 
 	public function get_file( $file_path ) {
 		// check in cache first
-		$file_content = $this->cache->get_file( $file_path );
-		if ( $file_content ) {
-			return $file_content;
+		$file = $this->cache->get_file( $file_path );
+		if ( $file ) {
+			return $file;
 		}
 
+		$tmp_file = $this->cache->create_tmp_file();
+
+		// Request args for wp_remote_request()
+		$request_args = [
+			'stream' => true,
+			'filename' => $tmp_file,
+		];
+
 		// not in cache so get from API
-		$response = $this->call_api( $file_path, 'GET' );
+		$response = $this->call_api( $file_path, 'GET', $request_args );
 
 		if ( is_wp_error( $response ) ) {
 			return $response;
@@ -173,17 +200,21 @@ class API_Client {
 			return new WP_Error( 'get_file-failed', sprintf( __( 'Failed to get file `%1$s` (response code: %2$d)' ), $file_path, $response_code ) );
 		}
 
-		$body = wp_remote_retrieve_body( $response );
-
 		// save to cache
-		$this->cache->cache_file( $file_path, $body );
+		$this->cache->cache_file( $file_path, $tmp_file );
 
-		return $body;
+		return $tmp_file;
+	}
+
+	public function get_file_content( $file_path ) {
+		$file = $this->get_file( $file_path );
+
+		return file_get_contents( $file );
 	}
 
 	public function delete_file( $file_path ) {
 		$response = $this->call_api( $file_path, 'DELETE', [
-			'timeout' => 2,
+			'timeout' => 3,
 		] );
 
 		if ( is_wp_error( $response ) ) {
@@ -202,6 +233,13 @@ class API_Client {
 	}
 
 	public function is_file( $file_path, &$info = null ) {
+		// check in cache first
+		$stats = $this->cache->get_file_stats( $file_path );
+		if ( $stats ) {
+			$info = $stats;
+			return true;
+		}
+
 		$response = $this->call_api( $file_path, 'GET', [
 			'timeout' => 2,
 			'headers' => [
@@ -219,6 +257,9 @@ class API_Client {
 			$response_body = wp_remote_retrieve_body( $response );
 			$info = json_decode( $response_body, true );
 
+			// cache file info
+			$this->cache->cache_file_stats( $file_path, $info );
+
 			return true;
 		} elseif ( 404 === $response_code ) {
 			return false;
@@ -226,6 +267,15 @@ class API_Client {
 
 		/* translators: 1: file path 2: HTTP status code */
 		return new WP_Error( 'is_file-failed', sprintf( __( 'Failed to check if file `%1$s` exists (response code: %2$d)' ), $file_path, $response_code ) );
+	}
+
+	/**
+	 * Explicitly caches file stat data
+	 *
+	 * Basically an interface to API_Cache::cache_file_stats();
+	 */
+	public function cache_file_stats( $file_path, $info ) {
+		$this->cache->cache_file_stats( $file_path, $info );
 	}
 
 	/**
@@ -249,6 +299,14 @@ class API_Client {
 		}
 
 		$response_code = wp_remote_retrieve_response_code( $response );
+
+		if ( 503 === $response_code ) {
+			return new WP_Error(
+				'file-service-readonly',
+				__( 'Uploads are temporarily disabled due to Files service maintenance. Please try again later.' )
+			);
+		}
+
 		if ( 200 !== $response_code ) {
 			return new WP_Error( 'invalid-file-type',
 				sprintf( __( 'Failed to generate new unique file name `%1$s` (response code: %2$d)' ), $file_path, $response_code )
