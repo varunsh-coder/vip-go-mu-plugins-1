@@ -16,6 +16,8 @@ workflows:
       - php74-build-singlesite-nightly
       - php74-build-singlesite-no-jetpack
       - php74-build-multisite-no-jetpack
+      - php74-build-singlesite-parsely-filter-enabled
+      - php74-build-singlesite-parsely-option-enabled
       - search-dev-tools
 
   after-master-merge:
@@ -244,6 +246,26 @@ jobs:
     environment:
       - WP_MULTISITE: "0"
       - WP_VERSION: "latest"
+    docker:
+      - image: circleci/php:7.4-node
+      - image: *db_image
+
+  php74-build-singlesite-parsely-option-enabled:
+    <<: *php_job
+    environment:
+      - WP_MULTISITE: "0"
+      - WP_VERSION: "latest"
+      - WPVIP_PARSELY_INTEGRATION_TEST_MODE: "option_enabled"
+    docker:
+      - image: circleci/php:7.4-node
+      - image: *db_image
+
+  php74-build-singlesite-parsely-filter-enabled:
+    <<: *php_job
+    environment:
+      - WP_MULTISITE: "0"
+      - WP_VERSION: "latest"
+      - WPVIP_PARSELY_INTEGRATION_TEST_MODE: "filter_enabled"
     docker:
       - image: circleci/php:7.4-node
       - image: *db_image
