@@ -526,6 +526,9 @@ class Search {
 
 		// Lock search algorithm to 3.5
 		add_filter( 'ep_search_algorithm_version', [ $this, 'filter__ep_search_algorithm_version' ] );
+
+		add_filter( 'ep_synonyms_filter', [ $this, 'update_ep_default_synonym_filter' ] );
+
 	}
 
 	protected function load_commands() {
@@ -1987,9 +1990,9 @@ class Search {
 
 	/**
 	 * Filter out default algorithm version to be used.
-	 * 
+	 *
 	 * @param $default_algorithm_version string Algorithm version.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function filter__ep_search_algorithm_version( $default_algorithm_version ) {
@@ -2014,5 +2017,15 @@ class Search {
 
 			$this->versioning->set_current_version_number( $indexable, $normalized_version );
 		}
+	}
+
+	/**
+	 * Default synonym filter type is 'synonym', but that is deprecated in favour of 'synonym_graph'
+	 *
+	 * The old 'synonym', could lead to incorrect token offset calculation and therefore break indexing.
+	 */
+	public function update_ep_default_synonym_filter( $filter ) {
+		$filter['type'] = 'synonym_graph';
+		return $filter;
 	}
 }
