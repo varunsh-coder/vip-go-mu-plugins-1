@@ -184,3 +184,17 @@ add_filter( 'a8c_cron_control_concurrent_event_whitelist', function( $whitelist 
 
 	return $whitelist;
 } );
+
+/**
+ * Filter post types: nf_sub ( ninja form submissions )
+ */
+add_filter( 'wpcom_async_transition_post_status_schedule_async', function( $should_schedule, $args ) {
+	$post_type = get_post_type( $args['post_id'] );
+
+	// Skip wpcom_async_transition_post_status for nf_sub post type.
+	if ( 'nf_sub' === $post_type ) {
+		$should_schedule = false;
+	}
+
+	return $should_schedule;
+}, 10, 2 );
