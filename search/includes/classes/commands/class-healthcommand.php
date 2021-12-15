@@ -4,6 +4,7 @@ namespace Automattic\VIP\Search\Commands;
 
 use \WP_CLI;
 use \WP_CLI\Utils;
+use WP_Error;
 
 require_once __DIR__ . '/../class-health.php';
 
@@ -15,7 +16,7 @@ require_once __DIR__ . '/../class-health.php';
 class HealthCommand extends \WPCOM_VIP_CLI_Command {
 	private const SUCCESS_ICON = "\u{2705}"; // unicode check mark
 	private const FAILURE_ICON = "\u{274C}"; // unicode cross mark
-	private const INFO_ICON = "\u{1F7E7}"; // unicode info mark
+	private const INFO_ICON    = "\u{1F7E7}"; // unicode info mark
 
 	public function __construct() {
 		require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -24,7 +25,7 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 	}
 
 	/**
-	 * Validate DB and ES index counts for all objects
+	 * Validate DB and ES index counts for all objects for active indexables
 	 *
 	 * ## OPTIONS
 	 *
@@ -35,11 +36,10 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 	 * @subcommand validate-counts
 	 */
 	public function validate_counts( $args, $assoc_args ) {
-		$this->validate_posts_count( $args, $assoc_args );
-
-		WP_CLI::line( '' );
-
-		$this->validate_users_count( $args, $assoc_args );
+		foreach ( \ElasticPress\Indexables::factory()->get_all( null, true ) as $indexable_slug ) {
+			$this->validate_indexable_count( $indexable_slug, $assoc_args );
+			WP_CLI::line( '' );
+		}
 	}
 
 	/**
@@ -52,7 +52,7 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 	 * : Validate all sites in a multisite network
 	 *
 	 * ## EXAMPLES
-	 *     wp vip-es health validate-users-count
+	 *     wp vip-search health validate-users-count
 	 *
 	 * @subcommand validate-users-count
 	 */
@@ -79,6 +79,42 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 	}
 
 	/**
+	 * ## OPTIONS
+	 *
+	 * [--version=<int>]
+	 * : Index version to validate - defaults to all
+	 *
+	 * [--network-wide]
+	 * : Validate all sites in a multisite network
+	 *
+	 * ## EXAMPLES
+	 *     wp vip-es health validate-terms-count
+	 *
+	 * @subcommand validate-terms-count
+	 */
+	public function validate_terms_count( $args, $assoc_args ) {
+		$this->validate_indexable_count( 'term', $assoc_args );
+	}
+
+		/**
+	 * ## OPTIONS
+	 *
+	 * [--version=<int>]
+	 * : Index version to validate - defaults to all
+	 *
+	 * [--network-wide]
+	 * : Validate all sites in a multisite network
+	 *
+	 * ## EXAMPLES
+	 *     wp vip-es health validate-comments-count
+	 *
+	 * @subcommand validate-comments-count
+	 */
+	public function validate_comments_count( $args, $assoc_args ) {
+		$this->validate_indexable_count( 'comment', $assoc_args );
+	}
+
+	/**
 	 * Generic internal function to validate counts on any indexable,
 	 * supporting multisite installations
 	 *
@@ -92,8 +128,6 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 			return;
 		}
 
-		$search = \Automattic\VIP\Search\Search::instance();
-
 		if ( isset( $assoc_args['version'] ) ) {
 			$version = intval( $assoc_args['version'] );
 		} else {
@@ -102,7 +136,8 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 
 		if ( isset( $assoc_args['network-wide'] ) && is_multisite() ) {
 			if ( isset( $version ) ) {
-				return WP_CLI::error( 'The --network-wide argument is not compatible with --version when not using network mode (the `EP_IS_NETWORK` constant), as subsites  can have differing index versions' );
+				WP_CLI::error( 'The --network-wide argument is not compatible with --version when not using network mode (the `EP_IS_NETWORK` constant), as subsites  can have differing index versions' );
+				return;
 			}
 
 			$sites = \ElasticPress\Utils\get_sites();
@@ -149,6 +184,7 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 		$search = \Automattic\VIP\Search\Search::instance();
 
 		$versions = [];
+		$results  = [];
 
 		if ( isset( $version ) ) {
 			$versions[] = $version;
@@ -178,10 +214,22 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 						'index_version' => $version_number,
 					) );
 					break;
+				case 'term':
+					$results = \Automattic\VIP\Search\Health::validate_index_terms_count( array(
+						'index_version' => $version_number,
+					) );
+					break;
+				case 'comment':
+					$results = \Automattic\VIP\Search\Health::validate_index_comments_count( array(
+						'index_version' => $version_number,
+					) );
+					break;
 			}
 
 			if ( is_wp_error( $results ) ) {
-				return WP_CLI::error( $results->get_error_message() );
+				/** @var WP_Error $results */
+				WP_CLI::error( $results->get_error_message() );
+				return;
 			}
 
 			$this->render_results( $results );
@@ -205,13 +253,13 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 
 			if ( $result['skipped'] ) {
 				$reason_message = 'index-not-found' === $result['reason'] ? 'index was not found in ES' : 'there are no documents in ES';
-				$message = sprintf( '%s skipping, because %s when counting %s', self::INFO_ICON, $reason_message, $identification );
+				$message        = sprintf( '%s skipping, because %s when counting %s', self::INFO_ICON, $reason_message, $identification );
 			} else {
 				$message = ' inconsistencies found';
 				if ( $result['diff'] ) {
 					$icon = self::FAILURE_ICON;
 				} else {
-					$icon = self::SUCCESS_ICON;
+					$icon    = self::SUCCESS_ICON;
 					$message = 'no' . $message;
 				}
 
@@ -285,7 +333,7 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 
 			$message = $results->get_error_message();
 			if ( 'content_validation_already_ongoing' === $results->get_error_code() ) {
-				$message .= "\n\nYou can use --force-parallel-execution to run the command even with the lock in place";
+				$message .= "\n\nYou can use --force_parallel_execution to run the command even with the lock in place";
 			}
 			WP_CLI::error( $message );
 		}
@@ -300,14 +348,15 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 		}
 
 		if ( ! isset( $assoc_args['silent'] ) ) {
+			$message = 'Inconsistencies ' . ( ! isset( $assoc_args['do_not_heal'] ) ? 'fixed' : 'found' ) . ':';
 			// Not empty, so inconsistencies were found...
-			WP_CLI::warning( 'Inconsistencies found!' );
+			WP_CLI::warning( $message );
 		}
 
 		$this->render_contents_diff( $results, $assoc_args['format'], $assoc_args['max_diff_size'], isset( $assoc_args['silent'] ) );
 	}
 
-	private function render_contents_diff( $diff, $format = 'csv', $max_diff_size, $silent = false ) {
+	private function render_contents_diff( $diff, $format, $max_diff_size, $silent = false ) {
 		if ( ! is_array( $diff ) || empty( $diff ) || 0 >= $max_diff_size ) {
 			return;
 		}
@@ -321,7 +370,7 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 		$truncate_msg = '';
 		if ( count( $diff ) > $max_diff_size ) {
 			$truncate_msg = sprintf( 'Truncated diff processing at %d out of %d since max_diff_size is %d', $max_diff_size, count( $diff ), $max_diff_size );
-			$diff = array_slice( $diff, 0, $max_diff_size, true );
+			$diff         = array_slice( $diff, 0, $max_diff_size, true );
 		}
 
 		// Array pop without modifying the diff array
@@ -332,6 +381,7 @@ class HealthCommand extends \WPCOM_VIP_CLI_Command {
 		} else {
 			WP_CLI::warning( 'Formatting is being ignored!' );
 			foreach ( $diff as $d ) {
+				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
 				var_dump( $d );
 			}
 		}

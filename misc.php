@@ -7,10 +7,8 @@ Version: 1.1
 License: GPL version 2 or later - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
+// phpcs:ignore WordPressVIPMinimum.Hooks.RestrictedHooks.upload_mimes
 add_filter( 'upload_mimes', function( $mimes ) {
-	// TODO: Remove when WebP files are supported by VIP File System
-	unset( $mimes['webp'] );
-
 	unset( $mimes['flv'] );
 	return $mimes;
 }, 99999 );
@@ -50,13 +48,14 @@ add_filter( 'postmeta_form_keys', '__return_false' );
  * @return void
  */
 function action_wpcom_vip_verify_string() {
-	if ( ! defined( 'VIP_VERIFY_PATH' ) || ! defined( 'VIP_VERIFY_STRING' ) ) {
+	if ( ! defined( 'VIP_VERIFY_PATH' ) || ! defined( 'VIP_VERIFY_STRING' ) || ! isset( $_SERVER['REQUEST_URI'] ) ) {
 		return;
 	}
 	$verification_path = '/' . VIP_VERIFY_PATH;
 	if ( $verification_path === $_SERVER['REQUEST_URI'] ) {
 		status_header( 200 );
 		nocache_headers();
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo VIP_VERIFY_STRING;
 		exit;
 	}
@@ -83,7 +82,7 @@ function _wpcom_vip_maybe_clear_alloptions_cache( $option ) {
 	}
 }
 
-add_action( 'added_option',   '_wpcom_vip_maybe_clear_alloptions_cache' );
+add_action( 'added_option', '_wpcom_vip_maybe_clear_alloptions_cache' );
 add_action( 'updated_option', '_wpcom_vip_maybe_clear_alloptions_cache' );
 add_action( 'deleted_option', '_wpcom_vip_maybe_clear_alloptions_cache' );
 
@@ -127,11 +126,17 @@ function _vip_filter_rest_url_for_ssl( $url ) {
 
 
 function wpcom_vip_query_log() {
-	if ( '/cache-healthcheck?' === $_SERVER['REQUEST_URI'] ) {
+	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	$request_uri = $_SERVER['REQUEST_URI'] ?? '';
+	if ( '/cache-healthcheck?' === $request_uri ) {
 		return;
 	}
+
+	// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.NonceVerification.Recommended
+	$action      = $_REQUEST['action'] ?? 'N/A';
 	$num_queries = count( $GLOBALS['wpdb']->queries );
-	error_log( 'WPCOM VIP Query Log for ' . $_SERVER['REQUEST_URI'] . '  (action: ' . $_REQUEST['action'] . ') ' . $num_queries . 'q: ' . PHP_EOL . print_r( $GLOBALS['wpdb']->queries, true ) );
+	// phpcs:ignore WordPress.PHP.DevelopmentFunctions
+	error_log( 'WPCOM VIP Query Log for ' . $request_uri . '  (action: ' . $action . ') ' . $num_queries . 'q: ' . PHP_EOL . print_r( $GLOBALS['wpdb']->queries, true ) );
 }
 
 /**

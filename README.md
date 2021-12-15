@@ -1,6 +1,12 @@
 # VIP Go mu-plugins
 
-This is the development repo for mu-plugins on [VIP Go](https://wpvip.com/documentation/vip-go/),
+This is the development repo for mu-plugins on [VIP Go](https://wpvip.com/documentation/vip-go/).
+
+## Documentation
+
+### Enterprise Search
+
+Please, visit our [Enterprise Search documentation](https://docs.wpvip.com/how-tos/vip-search/) to learn more.
 
 ## Development
 
@@ -30,11 +36,11 @@ npm run phplint
 
 ##### PHPCS
 
-We use eslines to incrementally scan changed code. It will automatically run on pre-commit (see `.huskyrc.json`).
+We use eslines to incrementally scan changed code. It will automatically run on pre-push (see `.huskyrc.json`).
 
 This is also run on Circle CI for all PRs.
 
-If you want too scan the entire codebase:
+If you want to scan the entire codebase:
 
 ```bash
 npm run phpcs
@@ -42,35 +48,18 @@ npm run phpcs
 
 ##### PHPUnit
 
-If you're using the Lando-based environvment and it's already running, you can run unit tests by calling:
-
-```bash
-lando test
-```
-
 If you don't have the Lando-based environment running (e.g. in a CI context), we have a script that runs unit tests in a self-contained Docker environment. To run these tests, execute the following from the project root:
 
 ```bash
-./bin/phpunit-docker.sh
+./bin/test.sh
 ```
 
-You can either pass a version number to test against a specific version, or leave it blank to test against the latest version.
-
+You can also filter by test name.
 ```bash
-./bin/phpunit-docker.sh --wp 5.4.4
+./bin/test.sh --filter test__rate_limit_ep_query_integration__clears_start_correctly
 ```
 
-You can also pass the path to a specific test as well as extra PHPUnit arguments:
-
-```bash
-./bin/phpunit-docker.sh tests/path/to/the/test-something.php --stop-on-failure [...args]
-```
-
-Finally, you also have the option to choose if the tests run on a multisite environment:
-
-```bash
-./bin/phpunit-docker.sh --wp 5.4.4 --multisite 1
-```
+See [`./bin/test.sh`](./bin/test.sh) for more options.
 
 ##### CI
 
@@ -102,13 +91,27 @@ To investigate failing test locally you can do following (buckle up as this is n
 
 1. Run the test you want (in this case `test_allowed_anon_comments`) `$MU_PLUGINS_DIR/vendor/bin/phpunit --filter test_allowed_anon_comments`
 
-### PHPDoc
-
-You can find selective PHPDoc documentation here: https://automattic.github.io/vip-go-mu-plugins/
-
-These are generated via CI by the [`generate-docs.sh`]() script.
-
 ## Deployment
+
+### Release
+
+A new release of the plugin consists of all those pull requests that have been merged since the last release and have been deployed to Staging (i.e. have the _[Status] Deployed to staging_ label. Releases are named after the day they are released plus a minor version:
+
+```
+YYYYMMDD.x
+
+e.g: 20210917.0
+```
+
+Releases are created using GitHub's releases and are effectively a tag in the GitHub repository. Previous releases can be found [here](https://github.com/Automattic/vip-go-mu-plugins/releases/).
+
+To create a new release, please use the `create-release` script. The script requires the [GitHub CLI](https://github.com/cli/cli) to be installed in the computer. It will create the new release, properly tagged and with the expected description.
+
+```
+cd vip-go-mu-plugins
+
+bin/create-release.sh
+```
 
 ### Production
 
@@ -120,12 +123,3 @@ This is a repo primarily meant for local non-development use.
 
 Every commit merged into `master` is automatically pushed to the public copy at [Automattic/vip-go-mu-plugins-built](https://github.com/Automattic/vip-go-mu-plugins-built/). This is handled via CI by the [`deploy.sh` script](https://github.com/Automattic/vip-go-mu-plugins/blob/master/ci/deploy.sh) script, which builds pushes a copy of this repo and expanded submodules.
 
-#### How this works
-
-1. The private part of a deploy key for [Automattic/vip-mu-plugins-built](https://github.com/Automattic/vip-go-mu-plugins-built/) is encrypted against this repository ([Automattic/vip-mu-plugins-built](https://github.com/Automattic/vip-go-mu-plugins/)), meaning it can only be decrypted by Travis running scripts related to this repo
-2. This repository and it's submodules are checked out, again, to start the build
-3. All VCS config and metadata is removed from the build
-4. Various files are removed, including the [`.travis.yml`](https://github.com/Automattic/vip-go-mu-plugins/blob/master/.travis.yml) containing the encrypted private part of the deploy key
-5. The [Automattic/vip-mu-plugins-built](https://github.com/Automattic/vip-go-mu-plugins-built/) repo is checked out
-6. The `.git` directory from the `Automattic/vip-go-mu-plugins-built` repository is moved into the build directory, and a commit is created representing the changes from this build
-7. The commit is pushed to the `Automattic/vip-go-mu-plugins-built` repository

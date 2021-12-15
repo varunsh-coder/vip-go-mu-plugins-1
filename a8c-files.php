@@ -7,32 +7,34 @@ Version: 0.2
 Author URI: http://automattic.com/
 */
 
+// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound -- needs refactoring
+
 /* Requires at least: 3.9.0
  * due to the dependancy on the filter 'wp_insert_attachment_data'
  * used to catch imports and push the files to the VIP MogileFS service
  */
 
-if ( ! defined( 'FILE_SERVICE_ENDPOINT' ) )
+if ( ! defined( 'FILE_SERVICE_ENDPOINT' ) ) {
 	define( 'FILE_SERVICE_ENDPOINT', 'files.vipv2.net' );
+}
 
 define( 'LOCAL_UPLOADS', '/tmp/uploads' );
 
 define( 'ALLOW_UNFILTERED_UPLOADS', false );
 
-require_once( __DIR__ . '/files/class-path-utils.php' );
+require_once __DIR__ . '/files/class-path-utils.php';
 
-require_once( __DIR__ . '/files/init-filesystem.php' );
+require_once __DIR__ . '/files/init-filesystem.php';
 
-require_once( __DIR__ . '/files/class-vip-filesystem.php' );
+require_once __DIR__ . '/files/class-vip-filesystem.php';
 
-require_once( __DIR__ . '/files/acl/acl.php' );
+require_once __DIR__ . '/files/acl/acl.php';
 
 /**
  * The class use to update attachment meta data
  */
 require_once __DIR__ . '/files/class-meta-updater.php';
 
-use Automattic\VIP\Files\Path_Utils;
 use Automattic\VIP\Files\VIP_Filesystem;
 use Automattic\VIP\Files\Meta_Updater;
 
@@ -61,19 +63,15 @@ class A8C_Files {
 	 */
 	const OPT_MAX_POST_ID = 'vip_attachment_max_post_id_v2';
 
-	function __construct() {
+	public function __construct() {
 
 		// Upload size limit is 1GB
 		add_filter( 'upload_size_limit', function() {
-			return 1073741824; // pow( 2, 30 )
+			return 1073741824; // 2^30
 		});
 
-		// Conditionally load either the new Stream Wrapper implementation or old school a8c-files.
-		// The old school implementation will be phased out soon.
 		if ( defined( 'VIP_FILESYSTEM_USE_STREAM_WRAPPER' ) && true === VIP_FILESYSTEM_USE_STREAM_WRAPPER ) {
 			$this->init_vip_filesystem();
-		} else {
-			$this->init_legacy_filesystem();
 		}
 
 		// Initialize Photon-specific filters.
@@ -81,18 +79,22 @@ class A8C_Files {
 		add_action( 'init', array( $this, 'init_photon' ) );
 
 		// ensure we always upload with year month folder layouts
-		add_filter( 'pre_option_uploads_use_yearmonth_folders', function( $arg ) { return '1'; } );
+		add_filter( 'pre_option_uploads_use_yearmonth_folders', function() {
+			return '1';
+		} );
 
 		// ensure the correct upload URL is used even after switch_to_blog is called
-		add_filter( 'option_upload_url_path', array( $this, 'upload_url_path' ), 10, 2 );
+		add_filter( 'option_upload_url_path', array( $this, 'upload_url_path' ) );
 
-		// Conditionally schedule the attachment filesize metaata update job
+		// Conditionally schedule the attachment filesize metadata update job
 		if ( defined( 'VIP_FILESYSTEM_SCHEDULE_FILESIZE_UPDATE' ) && true === VIP_FILESYSTEM_SCHEDULE_FILESIZE_UPDATE ) {
 			// add new cron schedule for filesize update
-			add_filter( 'cron_schedules', array( $this, 'filter_cron_schedules' ), 10, 1 );
+			add_filter( 'cron_schedules', array( $this, 'filter_cron_schedules' ), 10, 1 ); // phpcs:ignore WordPress.WP.CronInterval.CronSchedulesInterval
 
-			// Schedule meta update job
-			$this->schedule_update_job();
+			if ( wp_doing_cron() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+				// Schedule meta update job
+				$this->schedule_update_job();
+			}
 		}
 	}
 
@@ -104,29 +106,9 @@ class A8C_Files {
 		$vip_filesystem->run();
 	}
 
-	/**
-	 * Initializes our legacy filter-based approach to uploads.
-	 */
-	private function init_legacy_filesystem() {
-		// Hooks for the mu-plugin WordPress Importer
-		add_filter( 'load-importer-wordpress', array( &$this, 'check_to_download_file' ), 10 );
-		add_filter( 'wp_insert_attachment_data', array( &$this, 'check_to_upload_file' ), 10, 2 );
-
-		add_filter( 'wp_unique_filename', array( $this, 'filter_unique_filename' ), 10, 4 );
-		add_filter( 'wp_check_filetype_and_ext', array( $this, 'filter_filetype_check' ), 10, 4 );
-
-		add_filter( 'upload_dir', array( &$this, 'get_upload_dir' ), 10, 1 );
-
-		add_filter( 'wp_handle_upload', array( &$this, 'upload_file' ), 10, 2 );
-		add_filter( 'wp_delete_file', array( &$this, 'delete_file' ), 20, 1 );
-
-		add_filter( 'wp_save_image_file', array( &$this, 'save_image_file' ), 10, 5 );
-		add_filter( 'wp_save_image_editor_file', array( &$this, 'save_image_file' ), 10, 5 );
-	}
-
-	function init_photon() {
+	public function init_photon() {
 		// Limit to certain contexts for the initial testing and roll-out.
-		// This will be phased out and become the default eventually.
+		// This check may be phased out and Photon may become the default eventually.
 		$use_jetpack_photon = $this->use_jetpack_photon();
 		if ( $use_jetpack_photon ) {
 			$this->init_jetpack_photon_filters();
@@ -142,6 +124,7 @@ class A8C_Files {
 
 	private function init_jetpack_photon_filters() {
 		if ( ! class_exists( 'Jetpack_Photon' ) ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
 			trigger_error( 'Cannot initialize Photon filters as the Jetpack_Photon class is not loaded. Please verify that Jetpack is loaded and active to restore this functionality.', E_USER_WARNING );
 			return;
 		}
@@ -151,13 +134,13 @@ class A8C_Files {
 		add_filter( 'jetpack_photon_development_mode', '__return_false', 9999 );
 
 		if ( false === is_vip_go_srcset_enabled() ) {
-			add_filter( 'wp_get_attachment_metadata', function ( $data, $post_id ) {
+			add_filter( 'wp_get_attachment_metadata', function ( $data ) {
 				if ( isset( $data['sizes'] ) ) {
 					$data['sizes'] = array();
 				}
 
 				return $data;
-			}, 10, 2 );
+			} );
 		}
 
 		// This is our catch-all to strip dimensions from intermediate images in content.
@@ -188,10 +171,11 @@ class A8C_Files {
 	}
 
 	private function use_jetpack_photon() {
-		if (  defined( 'WPCOM_VIP_USE_JETPACK_PHOTON' ) && true === WPCOM_VIP_USE_JETPACK_PHOTON ) {
+		if ( defined( 'WPCOM_VIP_USE_JETPACK_PHOTON' ) && true === WPCOM_VIP_USE_JETPACK_PHOTON ) {
 			return true;
 		}
 
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- nonce is not available
 		if ( isset( $_GET['jetpack-photon'] ) && 'yes' === $_GET['jetpack-photon'] ) {
 			return true;
 		}
@@ -199,511 +183,13 @@ class A8C_Files {
 		return false;
 	}
 
-	function check_to_upload_file( $data, $postarr ) {
-		// Check if this is an import or a local image_editor->save
-		if ( 0 < intval( $postarr['import_id'] ) || ! $this->attachment_file_exists( $postarr['guid'] ) ) {
-			$url_parts = parse_url( $postarr['guid'] );
-			$uploads = wp_upload_dir();
-			if ( false !== $uploads['error'] )
-				return $data;
-
-			$dir_file_parts = explode( '/', $url_parts['path'] );
-			if ( 3 > count( $dir_file_parts ) )
-				return $data;
-
-			$local_file_path = implode( '/', array_splice( $dir_file_parts, count( $dir_file_parts ) - 3 ) );
-			$filename = constant( 'LOCAL_UPLOADS' ) . '/' . $local_file_path;
-
-			$file = array(
-				'file'  => $filename,
-				'url'   => $this->get_files_service_hostname() . $url_parts['path'],
-				'type'  => $postarr['post_mime_type'],
-				'error' => 0,
-			);
-
-			$file = $this->upload_file( $file, 'attachment_import' );
-
-			// did the file get renamed due to a name clash, if so record the change
-			if ( basename( $url_parts['path'] ) != basename( $file['file'] ) ) {
-				$data['guid'] = str_replace( basename( $url_parts['path'] ),
-									basename( $file['file'] ), $data['guid'] );
-			}
-		}
-		return $data;
-	}
-
-	// Supports the mu-plugin WordPress Importer
-	// Ensures a local copy of the imported xml file is available for local reading at the final import step
-	function check_to_download_file() {
-		$step = empty( $_GET['step'] ) ? 0 : (int) $_GET['step'];
-		if ( 2 !== $step )
-			return;
-
-		$this->id = (int) $_POST['import_id'];
-		$file = get_attached_file( $this->id );
-		if ( ! $file || file_exists( $file ) )
-			return;
-
-		$service_url = $this->get_files_service_hostname() . '/' . $this->get_upload_path();
-
-		if ( is_multisite() && ! ( is_main_network() && is_main_site() ) ) {
-			$service_url .= '/sites/' . get_current_blog_id();
-		}
-
-		$file_url = str_ireplace( constant( 'LOCAL_UPLOADS' ),
-						$service_url,
-						$file );
-
-		$opts = array(
-				'http' => array(
-					'method' => "GET",
-					'header' => 'X-Client-Site-ID: ' . FILES_CLIENT_SITE_ID . "\r\n",
-				)
-			);
-
-		$context = stream_context_create( $opts );
-		$file_data = file_get_contents( $file_url, false, $context );
-
-		if ( $file_data ) {
-			$directory = pathinfo( $file )['dirname'];
-			if ( ! file_exists( $directory ) )
-				mkdir( $directory, 0777, true );
-			file_put_contents( $file, $file_data );
-			register_shutdown_function( 'unlink', $file );
-		}
-	}
-
-	function save_image_file( $override, $filename, $image, $mime_type, $post_id ) {
-		$return = $image->save( $filename, $mime_type );
-
-		if ( ! $return || is_wp_error( $return ) || ! file_exists( $filename ) )
-			return false;
-
-		$url_parts = parse_url( $filename );
-		if ( false !== stripos( $url_parts['path'], constant( 'LOCAL_UPLOADS' ) ) )
-			$file_uri = substr( $url_parts['path'], stripos( $url_parts['path'], constant( 'LOCAL_UPLOADS' ) ) + strlen( constant( 'LOCAL_UPLOADS' ) ) );
-		else
-			$file_uri = '/' . $url_parts['path'];
-
-		$service_url = $this->get_files_service_hostname() . '/' . $this->get_upload_path();
-		if ( is_multisite() && ! ( is_main_network() && is_main_site() ) ) {
-			$service_url .= '/sites/' . get_current_blog_id();
-		}
-
-		$file = array(
-				'file'  => $filename,
-				'url'   => $service_url . $file_uri,
-				'type'  => $mime_type,
-				'error' => 0,
-			);
-
-		$this->upload_file( $file, 'editor_save' );
-
-		return ( 0 === $file['error'] );
-	}
-
-	function get_upload_dir( $upload ) {
-		$upload['path'] = constant( 'LOCAL_UPLOADS' ) . $upload['subdir'];
-		$upload['basedir'] = constant( 'LOCAL_UPLOADS' );
-
-		return $upload;
-	}
-
-	function attachment_file_exists( $file_url ) {
-		$url_parts = parse_url( $file_url );
-		$post_url = $this->get_files_service_hostname() . $url_parts['path'];
-
-		$headers = array(
-					'X-Client-Site-ID: ' . constant( 'FILES_CLIENT_SITE_ID' ),
-					'X-Access-Token: ' . constant( 'FILES_ACCESS_TOKEN' ),
-					'X-Action: file_exists',
-				);
-
-		$ch = curl_init( $post_url );
-
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $ch, CURLOPT_HEADER, false );
-		curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
-		curl_setopt( $ch, CURLOPT_TIMEOUT, 10 );
-		curl_setopt( $ch, CURLOPT_VERBOSE, true );
-
-		curl_exec( $ch );
-		$http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-		curl_close( $ch );
-
-		return ( 200 == $http_code );
-	}
-
-	/**
-	 * Filter's the return value of `wp_unique_filename()`
-	 */
-	public function filter_unique_filename( $filename, $ext, $dir, $unique_filename_callback ) {
-		// If a unique filename callback was used, let's just use its results.
-		// `wp_unique_filename` has fired this already so we don't need to actually call it.
-		if ( $unique_filename_callback && is_callable( $unique_filename_callback ) ) {
-			return $filename;
-		}
-
-		if ( '.tmp' === $ext || '/tmp/' === $dir ) {
-			return $filename;
-		}
-
-		$ext = strtolower( $ext );
-
-		$filename = $this->_sanitize_filename( $filename );
-
-		$check = $this->_check_uniqueness_with_backend( $filename );
-
-		if ( 200 == $check['http_code'] ) {
-			$obj = json_decode( $check['content'] );
-			if ( isset(  $obj->filename ) && basename( $obj->filename ) != basename( $filename ) ) {
-				$filename = $obj->filename;
-			}
-		}
-
-		return $filename;
-	}
-
-	/**
-	 * Check filetype support against Mogile
-	 *
-	 * Leverages Mogile backend, which will return a 406 or other non-200 code if the filetype is unsupported
-	 */
-	public function filter_filetype_check( $filetype_data, $file, $filename, $mimes ) {
-		$filename = $this->_sanitize_filename( $filename );
-
-		$check = $this->_check_uniqueness_with_backend( $filename );
-
-		// Setting `ext` and `type` to empty will fail the upload because Go doesn't allow unfiltered uploads
-		// See `_wp_handle_upload()`
-		if ( 200 != $check['http_code'] ) {
-			$filetype_data['ext']             = '';
-			$filetype_data['type']            = '';
-			$filetype_data['proper_filename'] = false; // Never set this true, which leaves filename changing to dedicated methods in this class
-		}
-
-		return $filetype_data;
-	}
-
-	/**
-	 * Ensure consistent filename sanitization
-	 */
-	private function _sanitize_filename( $filename ) {
-		return sanitize_file_name( $filename );
-	}
-
-	/**
-	 * Common method to return a unique filename from the VIP Go File Service using the provided filename as a starting point
-	 */
-	private function _check_uniqueness_with_backend( $filename ) {
-		$headers = array(
-			'X-Client-Site-ID: ' . constant( 'FILES_CLIENT_SITE_ID' ),
-			'X-Access-Token: ' . constant( 'FILES_ACCESS_TOKEN' ),
-			'X-Action: unique_filename',
-		);
-
-		if ( ! ( ( $uploads = wp_upload_dir() ) && false === $uploads['error'] ) ) {
-			$file['error'] = $uploads['error'];
-			return $file;
-		}
-
-		$url_parts = parse_url( $uploads['url'] . '/' . $filename );
-		$file_path = $url_parts['path'];
-		if ( is_multisite() ) {
-			$sanitized_file_path = Path_Utils::trim_leading_multisite_directory( $file_path, $this->get_upload_path() );
-			if ( false !== $sanitized_file_path ) {
-				$file_path = $sanitized_file_path;
-				unset( $sanitized_file_path );
-			}
-		}
-
-		$post_url = $this->get_files_service_hostname() . $file_path;
-
-		$ch = curl_init( $post_url );
-
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $ch, CURLOPT_HEADER, false );
-		curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
-		curl_setopt( $ch, CURLOPT_TIMEOUT, 10 );
-		curl_setopt( $ch, CURLOPT_VERBOSE, true );
-
-		$content = curl_exec( $ch );
-		$http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-		curl_close( $ch );
-
-		return compact( 'http_code', 'content' );
-	}
-
-	function upload_file( $details, $upload_type ) {
-		if ( ! file_exists( $details['file'] ) ) {
-			$details['error'] = sprintf( __( 'The specified local upload file does not exist.' ) );
-			return $details;
-		}
-
-		if ( 'editor_save' == $upload_type ) {
-			$post_url = $details['url'];
-		} else {
-			$url_parts = parse_url( $details['url'] );
-			$file_path = $url_parts['path'];
-			if ( is_multisite() ) {
-				$sanitized_file_path = Path_Utils::trim_leading_multisite_directory( $file_path, $this->get_upload_path() );
-				if ( false !== $sanitized_file_path ) {
-					$file_path = $sanitized_file_path;
-					unset( $sanitized_file_path );
-
-					$details['url'] = $url_parts['scheme'] . '://' . $url_parts['host'] . $file_path;
-				}
-			}
-			$post_url = $this->get_files_service_hostname() . $file_path;
-		}
-
-		$headers = array(
-					'X-Client-Site-ID: ' . constant( 'FILES_CLIENT_SITE_ID' ),
-					'X-Access-Token: ' . constant( 'FILES_ACCESS_TOKEN' ),
-					'Content-Type: ' . $details['type'],
-					'Content-Length: ' . filesize( $details['file'] ),
-					'Connection: Keep-Alive',
-				);
-
-		$stream = fopen( $details['file'], 'r' );
-		$ch = curl_init( $post_url );
-
-		curl_setopt( $ch, CURLOPT_PUT, true );
-		curl_setopt( $ch, CURLOPT_INFILE, $stream );
-		curl_setopt( $ch, CURLOPT_INFILESIZE, filesize( $details['file'] ) );
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $ch, CURLOPT_HEADER, false );
-		curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
-		curl_setopt( $ch, CURLOPT_TIMEOUT, 10 + (int)( filesize( $details['file'] ) / 512000 ) ); // 10 plus 1 second per 500k
-
-		curl_setopt( $ch, CURLOPT_READFUNCTION,
-					function( $ch, $fd, $length ) use( $stream ) {
-						$data = fread( $stream, $length );
-						if ( null == $data )
-							return 0;
-						else
-							return $data;
-					});
-
-		$ret_data = curl_exec( $ch );
-		$http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-		curl_close( $ch );
-		fclose( $stream );
-		register_shutdown_function( 'unlink', $details['file'] );
-
-		switch ( $http_code ) {
-			case 200:
-				if ( 0 < strlen( $ret_data ) ) {
-					$obj = json_decode( $ret_data );
-					if ( isset(  $obj->filename ) && basename( $obj->filename ) != basename( $post_url ) ) {
-						$uploads = wp_upload_dir();
-						if ( false === $uploads['error'] ) {
-							@copy( $details['file'], $uploads['path'] . '/' . $obj->filename );
-							register_shutdown_function( 'unlink', $uploads['path'] . '/' . $obj->filename );
-						}
-						$details['file'] = str_replace( basename( $post_url ), basename( $obj->filename ), $details['file'] );
-					}
-				}
-				break;
-			case 204:
-				$details['error'] = sprintf( __( 'You have exceeded your file space quota.' ) );
-				break;
-			default:
-				$details['error'] = sprintf( __( 'Error uploading the file to the remote servers: Code %d' ), $http_code );
-				break;
-		}
-
-		return $details;
-	}
-
-	function delete_file( $file_name ) {
-		// To ensure we don't needlessly fire off deletes for all sizes of the same image, of
-		// which all except the first result in 404's, keep accounting of what we've deleted.
-		static $deleted_uris = array();
-
-		$url_parts = parse_url( $file_name );
-		if ( false !== stripos( $url_parts['path'], constant( 'LOCAL_UPLOADS' ) ) )
-			$file_uri = substr( $url_parts['path'], stripos( $url_parts['path'], constant( 'LOCAL_UPLOADS' ) ) + strlen( constant( 'LOCAL_UPLOADS' ) ) );
-		else
-			$file_uri = '/' . $url_parts['path'];
-
-		$headers = array(
-					'X-Client-Site-ID: ' . constant( 'FILES_CLIENT_SITE_ID' ),
-					'X-Access-Token: ' . constant( 'FILES_ACCESS_TOKEN' ),
-				);
-
-		$delete_uri = $file_uri;
-		$service_url = $this->get_files_service_hostname() . '/' . $this->get_upload_path();
-		if ( is_multisite() && ! ( is_main_network() && is_main_site() ) ) {
-			$service_url .= '/sites/' . get_current_blog_id();
-			$delete_uri = '/sites/' . get_current_blog_id() . $delete_uri;
-		}
-
-		if ( in_array( $delete_uri, $deleted_uris ) ) {
-			// This file has already been successfully deleted from the file service in this request
-			return;
-		}
-
-		$ch = curl_init( $service_url . $file_uri );
-
-		curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, 'DELETE' );
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( $ch, CURLOPT_HEADER, false );
-		curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
-		curl_setopt( $ch, CURLOPT_TIMEOUT, 10 );
-
-		curl_exec( $ch );
-		$http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-		curl_close( $ch );
-
-		if ( 200 != $http_code ) {
-			trigger_error( sprintf( __( 'Error deleting the file %s from the remote servers: Code %d' ), $file_uri, $http_code ), E_USER_WARNING );
-			return;
-		}
-
-		// Set our static so we can later recall that this file has already been deleted and purged
-		$deleted_uris[] = $delete_uri;
-
-		// We successfully deleted the file, purge the file from the caches
-		$invalidation_url = get_site_url() . '/' . $this->get_upload_path();
-		if ( is_multisite() && ! ( is_main_network() && is_main_site() ) ) {
-			$invalidation_url .= '/sites/' . get_current_blog_id();
-		}
-		$invalidation_url .= $file_uri;
-
-		$this->purge_file_cache( $invalidation_url, 'PURGE' );
-	}
-
-	private function purge_file_cache( $url, $method ) {
-		global $file_cache_servers;
-
-		$requests = array();
-
-		$parsed = parse_url( $url );
-		if ( empty( $parsed['host'] ) ) {
-			return $requests;
-		}
-
-		$uri = '/';
-		if ( isset( $parsed['path'] ) ) {
-			$uri = $parsed['path'];
-		}
-		if ( isset( $parsed['query'] ) ) {
-			$uri .= $parsed['query'];
-		}
-
-		if ( defined( 'PURGE_SERVER_TYPE' ) && 'mangle' == PURGE_SERVER_TYPE ) {
-			$data = array(
-				'group' => 'vip-go',
-				'scope' => 'global',
-				'type'  => $method,
-				'uri'   => $parsed['host'] . $uri,
-				'cb'    => 'nil',
-			);
-			$json = json_encode( $data );
-
-			$curl = curl_init();
-			curl_setopt( $curl, CURLOPT_URL, constant( 'PURGE_SERVER_URL' ) );
-			curl_setopt( $curl, CURLOPT_POST, true );
-			curl_setopt( $curl, CURLOPT_POSTFIELDS, $json );
-			curl_setopt( $curl, CURLOPT_HTTPHEADER, array(
-					'Content-Type: application/json',
-					'Content-Length: ' . strlen( $json )
-				) );
-			curl_setopt( $curl, CURLOPT_TIMEOUT, 5 );
-			curl_exec( $curl );
-			$http_code = curl_getinfo( $curl, CURLINFO_HTTP_CODE );
-			curl_close( $curl );
-
-			if ( 200 != $http_code ) {
-				trigger_error( sprintf( __( 'Error purging %s from the cache service: Code %d' ), $url, $http_code ), E_USER_WARNING );
-			}
-			return;
-		}
-
-		if ( ! isset( $file_cache_servers ) || empty( $file_cache_servers ) ) {
-			trigger_error( sprintf( __( 'Error purging the file cache for %s: There are no file cache servers defined.' ), $url ), E_USER_WARNING );
-			return $requests;
-		}
-
-		foreach ( $file_cache_servers as $server  ) {
-			$server = explode( ':', $server[0] );
-			$requests[] = array(
-				'ip'     => $server[0],
-				'port'   => $server[1],
-				'host'   => $parsed['host'],
-				'uri'    => $uri,
-				'method' => $method,
-			);
-		}
-
-		$this->purge_cache_servers( $requests );
-	}
-
-	private function purge_cache_servers( $requests ) {
-		$curl_multi = curl_multi_init();
-
-		foreach ( $requests as $req ) {
-			$curl = curl_init();
-			curl_setopt( $curl, CURLOPT_URL, "http://{$req['ip']}{$req['uri']}" );
-			curl_setopt( $curl, CURLOPT_PORT, $req['port'] );
-			curl_setopt( $curl, CURLOPT_HTTPHEADER, array( "Host: {$req['host']}" ) );
-			curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, $req['method'] );
-			curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt( $curl, CURLOPT_NOBODY, true );
-			curl_setopt( $curl, CURLOPT_HEADER, true );
-			curl_setopt( $curl, CURLOPT_TIMEOUT, 5 );
-			curl_multi_add_handle( $curl_multi, $curl );
-		}
-
-		$running = true;
-
-		while ( $running ) {
-			do {
-				$result = curl_multi_exec( $curl_multi, $running );
-			} while ( $result == CURLM_CALL_MULTI_PERFORM );
-
-			if ( $result != CURLM_OK )
-				error_log( 'curl_multi_exec() returned something different than CURLM_OK' );
-
-			curl_multi_select( $curl_multi, 0.2 );
-		}
-
-		while ( $completed = curl_multi_info_read( $curl_multi ) ) {
-			$info = curl_getinfo( $completed['handle'] );
-
-			if ( ! $info['http_code'] && curl_error( $completed['handle'] ) )
-				error_log( 'Error on: ' . $info['url'] . ' error: ' . curl_error( $completed['handle'] ) . "\n" );
-
-			if ( '200' != $info['http_code'] )
-				error_log( 'Request to ' . $info['url'] . ' returned HTTP code ' . $info['http_code'] . "\n" );
-
-			curl_multi_remove_handle( $curl_multi, $completed['handle'] );
-		}
-
-		curl_multi_close( $curl_multi );
-	}
-
-	private function get_upload_path() {
-		$upload_path = trim( get_option( 'upload_path' ) );
-		if ( empty( $upload_path ) )
-			return 'wp-content/uploads';
-		else
-			return $upload_path;
-	}
-
-	function get_files_service_hostname() {
-		return 'https://' . FILE_SERVICE_ENDPOINT;
-	}
-
-	public function upload_url_path( $upload_url_path, $option ) {
+	public function upload_url_path( $upload_url_path ) {
 		// No modifications needed outside multisite
-		if ( false === is_multisite() ) {
-			return $upload_url_path;
+		if ( false !== is_multisite() ) {
+			// Change the upload url path to site's URL + wp-content/uploads without trailing slash
+			// Related core code: https://core.trac.wordpress.org/browser/tags/4.6.1/src/wp-includes/functions.php#L1929
+			$upload_url_path = untrailingslashit( get_site_url( null, 'wp-content/uploads' ) );
 		}
-		// Change the upload url path to site's URL + wp-content/uploads without trailing slash
-		// Related core code: https://core.trac.wordpress.org/browser/tags/4.6.1/src/wp-includes/functions.php#L1929
-		$upload_url_path = untrailingslashit( get_site_url( null, 'wp-content/uploads' ) );
 
 		return $upload_url_path;
 	}
@@ -717,7 +203,7 @@ class A8C_Files {
 	 * @return bool|array False on failure, array on success.
 	 * @see image_downsize()
 	 */
-	function image_resize( $ignore, $id, $size ) {
+	public function image_resize( $ignore, $id, $size ) {
 		global $_wp_additional_image_sizes, $post;
 
 		// Don't bother resizing non-image (and non-existent) attachment.
@@ -728,17 +214,14 @@ class A8C_Files {
 		}
 
 		$content_width = isset( $GLOBALS['content_width'] ) ? $GLOBALS['content_width'] : null;
-		$crop = false;
-		$args = array();
+		$crop          = false;
+		$args          = array();
 
 		// For resize requests coming from an image's attachment page, override
 		// the supplied $size and use the user-defined $content_width if the
 		// theme-defined $content_width has been manually passed in.
 		if ( is_attachment() && $id === $post->ID ) {
-			if ( is_array( $size )
-				 && ! empty ( $size )
-				 && isset( $GLOBALS['content_width'] )
-				 && $size[0] == $GLOBALS['content_width'] ) {
+			if ( is_array( $size ) && ! empty( $size ) && isset( $GLOBALS['content_width'] ) && $size[0] == $GLOBALS['content_width'] ) {
 				$size = array( $content_width, $content_width );
 			}
 		}
@@ -749,29 +232,34 @@ class A8C_Files {
 		} elseif ( 'thumbnail' == $size ) {
 			$_max_w = get_option( 'thumbnail_size_w' );
 			$_max_h = get_option( 'thumbnail_size_h' );
-			if ( !$_max_w && !$_max_h ) {
+			if ( ! $_max_w && ! $_max_h ) {
 				$_max_w = 128;
 				$_max_h = 96;
 			}
-			if ( get_option( 'thumbnail_crop' ) )
+			if ( get_option( 'thumbnail_crop' ) ) {
 				$crop = true;
+			}
 		} elseif ( 'medium' == $size ) {
 			$_max_w = get_option( 'medium_size_w' );
 			$_max_h = get_option( 'medium_size_h' );
-				if ( !$_max_w && !$_max_h ) {
-					$_max_w = 300;
-					$_max_h = 300;
-				}
+			if ( ! $_max_w && ! $_max_h ) {
+				$_max_w = 300;
+				$_max_h = 300;
+			}
 		} elseif ( 'large' == $size ) {
 			$_max_w = get_option( 'large_size_w' );
 			$_max_h = get_option( 'large_size_h' );
 		} elseif ( is_array( $size ) ) {
-			$_max_w = $w = $size[0];
-			$_max_h = $h = $size[1];
-		} elseif ( ! empty( $_wp_additional_image_sizes[$size] ) ) {
-			$_max_w = $w = $_wp_additional_image_sizes[$size]['width'];
-			$_max_h = $h = $_wp_additional_image_sizes[$size]['height'];
-			$crop = $_wp_additional_image_sizes[$size]['crop'];
+			$_max_w = $size[0];
+			$_max_h = $size[1];
+			$w      = $_max_w;
+			$h      = $_max_h;
+		} elseif ( ! empty( $_wp_additional_image_sizes[ $size ] ) ) {
+			$_max_w = $_wp_additional_image_sizes[ $size ]['width'];
+			$_max_h = $_wp_additional_image_sizes[ $size ]['height'];
+			$w      = $_max_w;
+			$h      = $_max_h;
+			$crop   = $_wp_additional_image_sizes[ $size ]['crop'];
 		} elseif ( $content_width > 0 ) {
 			$_max_w = $content_width;
 			$_max_h = 0;
@@ -781,8 +269,9 @@ class A8C_Files {
 		}
 
 		// Constrain default image sizes to the theme's content width, if available.
-		if ( $content_width > 0 && in_array( $size, array( 'thumbnail', 'medium', 'large' ) ) )
+		if ( $content_width > 0 && in_array( $size, array( 'thumbnail', 'medium', 'large' ) ) ) {
 			$_max_w = min( $_max_w, $content_width );
+		}
 
 		$resized = false;
 		$img_url = wp_get_attachment_url( $id );
@@ -803,8 +292,9 @@ class A8C_Files {
 				$w = $imagedata['width'];
 
 				list ($w, $h) = wp_constrain_dimensions( $w, $h, $_max_w, $_max_h );
-				if ( $w < $imagedata['width'] || $h < $imagedata['height'] )
+				if ( $w < $imagedata['width'] || $h < $imagedata['height'] ) {
 					$resized = true;
+				}
 			} else {
 				$w = $_max_w;
 				$h = $_max_h;
@@ -820,38 +310,42 @@ class A8C_Files {
 				$h = $imagedata['height'];
 			}
 
-			if ( empty( $w ) )
+			if ( empty( $w ) ) {
 				$w = $_max_w;
+			}
 
-			if ( empty( $h ) )
+			if ( empty( $h ) ) {
 				$h = $_max_h;
+			}
 
 			// If the image width is bigger than the allowed max, scale it to match
-			if ( $w >= $_max_w )
+			if ( $w >= $_max_w ) {
 				$w = $_max_w;
-			else
+			} else {
 				$constrain = true;
+			}
 
 			// If the image height is bigger than the allowed max, scale it to match
-			if ( $h >= $_max_h )
+			if ( $h >= $_max_h ) {
 				$h = $_max_h;
-			else
+			} else {
 				$constrain = true;
+			}
 
-			if ( $constrain )
+			if ( $constrain ) {
 				list( $w, $h ) = wp_constrain_dimensions( $w, $h, $_max_w, $_max_h );
+			}
 
 			$args['w'] = $w;
 			$args['h'] = $h;
 
 			$args['crop'] = '1';
-			$resized = true;
-		}
-		// we want users to be able to resize full size images with tinymce.
-		// the image_add_wh() filter will add the ?w= query string at display time.
-		elseif ( 'full' != $size ) {
+			$resized      = true;
+		} elseif ( 'full' != $size ) {
+			// we want users to be able to resize full size images with tinymce.
+			// the image_add_wh() filter will add the ?w= query string at display time.
 			$args['w'] = $w;
-			$resized = true;
+			$resized   = true;
 		}
 
 		if ( is_array( $args ) ) {
@@ -880,14 +374,14 @@ class A8C_Files {
 	 * @return  mixed
 	 */
 	public function filter_cron_schedules( $schedule ) {
-		if ( isset( $schedule[ 'vip_five_minutes' ] ) ) {
+		if ( isset( $schedule['vip_five_minutes'] ) ) {
 			return $schedule;
 		}
 
 		// Not actually five minutes; we want it to run faster though to get through everything.
 		$schedule['vip_five_minutes'] = [
 			'interval' => 180,
-			'display' => __( 'Once every 3 minutes, unlike what the slug says. Originally used to be 5 mins.' ),
+			'display'  => __( 'Once every 3 minutes, unlike what the slug says. Originally used to be 5 mins.' ),
 		];
 
 		return $schedule;
@@ -902,8 +396,8 @@ class A8C_Files {
 			return;
 		}
 
-		if (! wp_next_scheduled ( self::CRON_EVENT_NAME )) {
-			wp_schedule_event(time(), 'vip_five_minutes', self::CRON_EVENT_NAME );
+		if ( ! wp_next_scheduled( self::CRON_EVENT_NAME ) ) {
+			wp_schedule_event( time(), 'vip_five_minutes', self::CRON_EVENT_NAME );
 		}
 
 		add_action( self::CRON_EVENT_NAME, [ $this, 'update_attachment_meta' ] );
@@ -917,8 +411,8 @@ class A8C_Files {
 			'#vip-go-filesize-updates',
 			sprintf( 'Starting %s on %s... $vip-go-streams-debug',
 				self::CRON_EVENT_NAME,
-				home_url() ),
-			5 );
+			home_url() ),
+		5 );
 
 		if ( get_option( self::OPT_ALL_FILESIZE_PROCESSED ) ) {
 			// already done. Nothing to update
@@ -926,8 +420,8 @@ class A8C_Files {
 				'#vip-go-filesize-updates',
 				sprintf( 'Already completed updates on %s. Exiting %s... $vip-go-streams-debug',
 					home_url(),
-					self::CRON_EVENT_NAME ),
-				5 );
+				self::CRON_EVENT_NAME ),
+			5 );
 			return;
 		}
 
@@ -946,8 +440,9 @@ class A8C_Files {
 		$num_lookups = 0;
 		$max_lookups = 10;
 
-		$orig_start_index = $start_index = get_option( self::OPT_NEXT_FILESIZE_INDEX, 0 );
-		$end_index = $start_index + $batch_size;
+		$orig_start_index = get_option( self::OPT_NEXT_FILESIZE_INDEX, 0 );
+		$start_index      = $orig_start_index;
+		$end_index        = $start_index + $batch_size;
 
 		do {
 			if ( $start_index > $max_id ) {
@@ -973,7 +468,7 @@ class A8C_Files {
 			update_option( self::OPT_NEXT_FILESIZE_INDEX, $start_index, false );
 
 			$start_index = $end_index + 1;
-			$end_index = $start_index + $batch_size;
+			$end_index   = $start_index + $batch_size;
 
 			// Avoid infinite loops
 			$num_lookups++;
@@ -990,7 +485,7 @@ class A8C_Files {
 		wpcom_vip_irc(
 			'#vip-go-filesize-updates',
 			sprintf( 'Batch %d to %d (of %d) completed on %s. Processed %d attachments (%s) $vip-go-streams-debug',
-				$orig_start_index, $start_index, $max_id, home_url(), count( $attachments ), json_encode( $counts ) ),
+			$orig_start_index, $start_index, $max_id, home_url(), count( $attachments ), wp_json_encode( $counts ) ),
 			5
 		);
 
@@ -1004,9 +499,9 @@ class A8C_Files_Utils {
 		$home_url = home_url();
 		$site_url = site_url();
 
-		$image_url_parsed = parse_url( $image_url );
-		$home_url_parsed = parse_url( $home_url );
-		$site_url_parsed = parse_url( $site_url );
+		$image_url_parsed = wp_parse_url( $image_url );
+		$home_url_parsed  = wp_parse_url( $home_url );
+		$site_url_parsed  = wp_parse_url( $site_url );
 
 		if ( $image_url_parsed['host'] === $home_url_parsed['host'] ) {
 			return $home_url;
@@ -1024,7 +519,7 @@ class A8C_Files_Utils {
 	}
 
 	public static function strip_dimensions_from_url_path( $url ) {
-		$path = parse_url( $url, PHP_URL_PATH );
+		$path = wp_parse_url( $url, PHP_URL_PATH );
 
 		if ( ! $path ) {
 			return $url;
@@ -1052,7 +547,7 @@ function a8c_files_init() {
  *
  * Function name parallels wpcom's implementation to accommodate existing code
  */
-function wpcom_intermediate_sizes( $sizes ) {
+function wpcom_intermediate_sizes() {
 	return __return_empty_array();
 }
 
@@ -1064,7 +559,9 @@ function wpcom_intermediate_sizes( $sizes ) {
  */
 function is_vip_go_srcset_enabled() {
 	// Allow override via querystring for easy testing
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- nonce is not available
 	if ( isset( $_GET['disable_vip_srcset'] ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		return '0' === $_GET['disable_vip_srcset'];
 	}
 
@@ -1108,7 +605,7 @@ function a8c_files_maybe_inject_image_sizes( $data, $attachment_id ) {
 	}
 
 	// Skip non-image attachments
-	$mime_type = get_post_mime_type( $attachment_id );
+	$mime_type           = get_post_mime_type( $attachment_id );
 	$attachment_is_image = preg_match( '!^image/!', $mime_type );
 	if ( 1 !== $attachment_is_image ) {
 		return $data;
@@ -1149,7 +646,7 @@ function a8c_files_maybe_inject_image_sizes( $data, $attachment_id ) {
 		}
 	}
 
-	$image_sizes = new Automattic\VIP\Files\ImageSizes( $attachment_id, $data );
+	$image_sizes   = new Automattic\VIP\Files\ImageSizes( $attachment_id, $data );
 	$data['sizes'] = $image_sizes->generate_sizes_meta();
 
 	$cached_sizes[ $attachment_id ] = $data['sizes'];
@@ -1173,8 +670,8 @@ if ( defined( 'FILES_CLIENT_SITE_ID' ) && defined( 'FILES_ACCESS_TOKEN' ) ) {
 			return;
 		}
 
-		require_once( __DIR__ . '/files/class-image.php' );
-		require_once( __DIR__ . '/files/class-image-sizes.php' );
+		require_once __DIR__ . '/files/class-image.php';
+		require_once __DIR__ . '/files/class-image-sizes.php';
 
 		// Load the native VIP Go srcset solution on priority of 20, allowing other plugins to set sizes earlier.
 		add_filter( 'wp_get_attachment_metadata', 'a8c_files_maybe_inject_image_sizes', 20, 2 );

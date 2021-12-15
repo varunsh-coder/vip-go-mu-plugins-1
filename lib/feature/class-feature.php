@@ -1,6 +1,7 @@
 <?php
 
 namespace Automattic\VIP;
+
 /**
  * Feature provides a simple interface to gate the functionality by the Go Site Id
  *
@@ -16,9 +17,7 @@ class Feature {
 	 *
 	 * @var array
 	 */
-	public static $feature_percentages = array(
-		'search-dev-tools' => 0.5,
-	);
+	public static $feature_percentages = array();
 
 	public static $site_id = false;
 

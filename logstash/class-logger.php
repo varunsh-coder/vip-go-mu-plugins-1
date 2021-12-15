@@ -33,7 +33,7 @@ class Logger {
 	 *
 	 * @var int
 	 */
-	protected const MAX_ENTRIES = 30;
+	protected const MAX_ENTRIES = 100;
 
 	/**
 	 * Maximum entries to send in one API request.
@@ -111,6 +111,7 @@ class Logger {
 		'file',
 		'http_host',
 		'http_response_code',
+		'http_user_agent',
 		'index',
 		'line',
 		'message',
@@ -290,29 +291,28 @@ class Logger {
 	protected static function parse_params( array $params ) : array {
 		// Prepare data.
 		$default_params = [
-			'site_id'   => get_current_network_id(),                  // Required.
-			'blog_id'   => get_current_blog_id(),                     // Required.
-			'http_host' => strtolower( $_SERVER['HTTP_HOST'] ?? '' ), // phpcs:ignore -- Optional.
-
-			'severity'  => '',                                        // Optional.
-			'feature'   => '',                                        // Required.
-			'message'   => '',                                        // Required.
-
-			'user_id'   => get_current_user_id(),                     // Optional.
-
-			'extra'     => [],                                        // Optional.
-			'timestamp' => gmdate( 'Y-m-d H:i:s' ),                   // Required.
-			'index'     => 'log2logstash',                            // Required
+			'site_id'         => get_current_network_id(),                    // Required.
+			'blog_id'         => get_current_blog_id(),                       // Required.
+			'http_host'       => strtolower( $_SERVER['HTTP_HOST'] ?? '' ),   // phpcs:ignore -- Optional.
+			'severity'        => '',                                          // Optional.
+			'feature'         => '',                                          // Required.
+			'message'         => '',                                          // Required.
+			'user_id'         => get_current_user_id(),                       // Optional.
+			'extra'           => [],                                          // Optional.
+			'timestamp'       => gmdate( 'Y-m-d H:i:s' ),                     // Required.
+			'index'           => 'log2logstash',                              // Required.
+			'http_user_agent' => self::get_user_agent(),                      // Optional.
 		];
 
 		if ( ! isset( $params['file'] ) && ! isset( $params['line'] ) ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
 			$backtrace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 1 );
 
-			if ( isset( $backtrace[0] ) && isset( $backtrace[0]['file'] ) ) {
+			if ( isset( $backtrace[0]['file'] ) ) {
 				$default_params['file'] = $backtrace[0]['file'];
 			}
 
-			if ( isset( $backtrace[0] ) && isset( $backtrace[0]['line'] ) ) {
+			if ( isset( $backtrace[0]['line'] ) ) {
 				$default_params['line'] = $backtrace[0]['line'];
 			}
 		}
@@ -394,16 +394,20 @@ class Logger {
 	 *
 	 * @internal          The following user-specific keys are set for you automatically:
 	 *                    - `user_id` : Optional. Default is current user ID.
-	 *                    - `user_ua` : Optional. Default is current user-agent.
+	 *                    - `http_user_agent` : Optional. Default is current user-agent or "cli"
 	 */
 	public static function log2logstash( array $data ) : void {
 		// Prepare data.
-		$data = static::parse_params( $data );
+		$data               = static::parse_params( $data );
+		static $has_alerted = false;
 
 		// Data validations.
 		// phpcs:disable WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
-		if ( count( static::$entries ) + 1 > static::MAX_ENTRIES ) {
-			trigger_error( 'Excessive calls to ' . esc_html( __METHOD__ ) . '(). Maximum is ' . esc_html( static::MAX_ENTRIES ) . ' log entries.', E_USER_WARNING );
+		if ( count( static::$entries ) + 1 > static::get_log_entry_limit() ) {
+			if ( ! $has_alerted ) {
+				trigger_error( 'Excessive calls to ' . esc_html( __METHOD__ ) . '(). Maximum is ' . esc_html( static::get_log_entry_limit() ) . ' log entries.', E_USER_WARNING );
+				$has_alerted = true;
+			}
 			return; // Failed validation.
 
 		} elseif ( empty( $data['site_id'] ) || ! is_int( $data['site_id'] ) || $data['site_id'] <= 0 ) {
@@ -502,9 +506,7 @@ class Logger {
 	 * @param array $entry.
 	 */
 	public static function maybe_wp_debug_log_entries( array $entry ) : void {
-		if ( ! apply_filters( 'enable_wp_debug_mode_checks', true ) ) {
-			return; // Not applicable.
-		} elseif ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
+		if ( ! apply_filters( 'enable_wp_debug_mode_checks', true ) || ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
 			return; // Not applicable.
 		}
 
@@ -527,6 +529,7 @@ class Logger {
 		$log_path = WP_CONTENT_DIR . '/debug.log';
 		$log_path = is_string( WP_DEBUG_LOG ) && WP_DEBUG_LOG ? WP_DEBUG_LOG : $log_path;
 
+		// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_is_writable -- not a VIP environment
 		if ( $log_path && ( ( file_exists( $log_path ) && is_writable( $log_path ) ) || ( ! file_exists( $log_path ) && is_writable( dirname( $log_path ) ) ) ) ) {
 			file_put_contents( // phpcs:ignore -- `file_put_contents()` ok.
 				$log_path,
@@ -534,5 +537,28 @@ class Logger {
 				FILE_APPEND
 			);
 		}
+	}
+
+	/**
+	 * Get maximum log entry count, any additional log entry after that will be silently discarded.
+	 *
+	 * @return int max number of entries
+	 */
+	public static function get_log_entry_limit() {
+		return defined( 'WP_CLI' ) && WP_CLI ? self::MAX_ENTRIES * 5 : self::MAX_ENTRIES;
+	}
+
+	/**
+	 * Get user agent for request if available
+	 *
+	 * @return string
+	 */
+	public static function get_user_agent() {
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			return 'cli';
+		}
+
+		// phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__
+		return sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ?? '' );
 	}
 }

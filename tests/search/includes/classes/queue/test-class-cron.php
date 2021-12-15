@@ -2,19 +2,25 @@
 
 namespace Automattic\VIP\Search\Queue;
 
-use Automattic\VIP\Search\Queue\Cron as Cron;
+use Automattic\VIP\Search\Queue\Cron;
+use Automattic\VIP\Search\Search;
+use PHPUnit\Framework\MockObject\MockObject;
+use WP_UnitTestCase;
+use wpdb;
 
-class Cron_Test extends \WP_UnitTestCase {
-	public function setUp() {
-		global $wpdb;
+class Cron_Test extends WP_UnitTestCase {
+	/** @var Search */
+	private $es;
 
+	public function setUp(): void {
 		if ( ! defined( 'VIP_SEARCH_ENABLE_ASYNC_INDEXING' ) ) {
 			define( 'VIP_SEARCH_ENABLE_ASYNC_INDEXING', true );
 		}
 
 		require_once __DIR__ . '/../../../../../search/search.php';
 
-		$this->es = \Automattic\VIP\Search\Search::instance();
+		$this->es = Search::instance();
+		$this->es->init();
 
 		$this->queue = $this->es->queue;
 
@@ -28,7 +34,9 @@ class Cron_Test extends \WP_UnitTestCase {
 	public function test_filter_cron_schedules() {
 		$schedules = wp_get_schedules();
 
-		$this->assertEquals( $schedules[ Cron::SWEEPER_CRON_INTERVAL_NAME ]['interval'], Cron::SWEEPER_CRON_INTERVAL );
+		self::assertArrayHasKey( Cron::SWEEPER_CRON_INTERVAL_NAME, $schedules );
+		self::assertArrayHasKey( 'interval', $schedules[ Cron::SWEEPER_CRON_INTERVAL_NAME ] );
+		self::assertEquals( $schedules[ Cron::SWEEPER_CRON_INTERVAL_NAME ]['interval'], Cron::SWEEPER_CRON_INTERVAL );
 	}
 
 	/**
@@ -71,28 +79,32 @@ class Cron_Test extends \WP_UnitTestCase {
 
 	public function test_process_jobs() {
 		$mock_queue = $this->getMockBuilder( Queue::class )
-			->setMethods( [ 'get_jobs', 'process_jobs' ] )
+			->setMethods( [ 'get_jobs_by_range', 'process_jobs' ] )
 			->getMock();
 
-		$mock_job_ids = array( 1, 2 );
+
+		$options = [
+			'min_id' => 1,
+			'max_id' => 2,
+		];
 
 		$mock_jobs = array(
 			(object) array(
-				'job_id' => 1,
-				'object_id' => 1,
+				'job_id'      => 1,
+				'object_id'   => 1,
 				'object_type' => 'post',
 			),
 			(object) array(
-				'job_id' => 2,
-				'object_id' => 2,
+				'job_id'      => 2,
+				'object_id'   => 2,
 				'object_type' => 'user',
 			),
 		);
 
-		// Should call Queue::get_jobs() with the right job_ids
+		// Should call Queue::get_jobs_by_range() with the right job_ids
 		$mock_queue->expects( $this->once() )
-			->method( 'get_jobs' )
-			->with( $mock_job_ids )
+			->method( 'get_jobs_by_range' )
+			->with( 1, 2 )
 			->will( $this->returnValue( $mock_jobs ) );
 
 		// Then it should process those jobs
@@ -101,34 +113,36 @@ class Cron_Test extends \WP_UnitTestCase {
 			->with( $mock_jobs )
 			->will( $this->returnValue( true ) );
 
-		$original_queue = $this->cron->queue;
+		$original_queue    = $this->cron->queue;
 		$this->cron->queue = $mock_queue;
 
-		$this->cron->process_jobs( $mock_job_ids );
+		$this->cron->process_jobs( $options );
 
 		// Restore original Queue to not affect other tests
 		$this->cron->queue = $original_queue;
 	}
 
 	public function test_schedule_batch_job() {
+		/** @var wpdb $wpdb */
+		global $wpdb;
+
+		/** @var Cron&MockObject */
 		$partially_mocked_cron = $this->getMockBuilder( Cron::class )
-			->setMethods( [ 'get_processor_job_count' ] )
+			->setMethods( [ 'get_processor_job_count', 'get_max_concurrent_processor_job_count' ] )
 			->getMock();
-		$mock_queue = $this->getMockBuilder( Queue::class )
+		$mock_queue            = $this->getMockBuilder( Queue::class )
 			->setMethods( [ 'checkout_jobs', 'free_deadlocked_jobs' ] )
 			->getMock();
 
-		$mock_job_ids = array( 1, 2 );
-
 		$mock_jobs = array(
 			(object) array(
-				'job_id' => 1,
-				'object_id' => 1,
+				'job_id'      => 1,
+				'object_id'   => 1,
 				'object_type' => 'post',
 			),
 			(object) array(
-				'job_id' => 2,
-				'object_id' => 2,
+				'job_id'      => 2,
+				'object_id'   => 2,
 				'object_type' => 'user',
 			),
 		);
@@ -139,6 +153,7 @@ class Cron_Test extends \WP_UnitTestCase {
 
 		// Only schedule once as the second count is already maximum
 		$partially_mocked_cron->method( 'get_processor_job_count' )->willReturnOnConsecutiveCalls( 1, 5 );
+		$partially_mocked_cron->method( 'get_max_concurrent_processor_job_count' )->willReturn( 5 );
 
 		$partially_mocked_cron->queue = $mock_queue;
 
@@ -146,14 +161,27 @@ class Cron_Test extends \WP_UnitTestCase {
 
 		$partially_mocked_cron->sweep_jobs();
 
-		$expected_cron_event_args = array(
-			$mock_job_ids,
-		);
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
+		$option_name = $wpdb->get_var( "SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE 'vip:esqp\_%'" );
+		self::assertIsString( $option_name );
+
+		$expected_cron_event_args = [
+			[
+				'option' => $option_name,
+			],
+		];
+
+		$expected_job_ids = [ 1, 2 ];
 
 		// Should have scheduled 1 cron event to process the posts
 		$cron_event_time = wp_next_scheduled( Cron::PROCESSOR_CRON_EVENT_NAME, $expected_cron_event_args );
 
-		$this->assertEquals( $now, $cron_event_time );
+		$this->assertEqualsWithDelta( $now, $cron_event_time, 1 );
+
+		$job_ids = get_option( $option_name );
+		self::assertEquals( $expected_job_ids, $job_ids );
+
+		self::assertTrue( delete_option( $option_name ) );
 
 		// Unschedule event to not pollute other tests
 		wp_unschedule_event( $now, Cron::PROCESSOR_CRON_EVENT_NAME, $expected_cron_event_args );
@@ -163,7 +191,7 @@ class Cron_Test extends \WP_UnitTestCase {
 		return [
 			[
 				[ 0, 1, 2, 3, 4, 5 ],
-				5,
+				3,
 			],
 			[
 				[ new \WP_Error( 'not-good' ) ],
@@ -180,8 +208,9 @@ class Cron_Test extends \WP_UnitTestCase {
 	 * @dataProvider schedule_batch_job__scheduling_limits_data
 	 */
 	public function test_schedule_batch_job__scheduling_limits( $job_counts, $expected_shedule_count ) {
+		/** @var Cron&MockObject */
 		$partially_mocked_cron = $this->getMockBuilder( Cron::class )
-			->setMethods( [ 'get_processor_job_count', 'schedule_batch_job' ] )
+			->setMethods( [ 'get_processor_job_count', 'schedule_batch_job', 'get_max_concurrent_processor_job_count' ] )
 			->getMock();
 
 
@@ -193,6 +222,8 @@ class Cron_Test extends \WP_UnitTestCase {
 
 		$partially_mocked_cron->method( 'get_processor_job_count' )
 			->willReturnOnConsecutiveCalls( ...$job_counts );
+		$partially_mocked_cron->method( 'get_max_concurrent_processor_job_count' )
+			->willReturn( 3 );
 
 		$partially_mocked_cron->sweep_jobs();
 	}
@@ -207,5 +238,39 @@ class Cron_Test extends \WP_UnitTestCase {
 		$enabled = $this->cron->is_enabled();
 
 		$this->assertTrue( $enabled );
+	}
+
+	public function configure_concurrency_data() {
+		return [
+			[ // min 1
+				1,
+				[ 'vip_search_queue_processor' => 1 ],
+			],
+			[ // max 25 %
+				10,
+				[ 'vip_search_queue_processor' => 3 ],
+			],
+			[
+				20,
+				[ 'vip_search_queue_processor' => 3 ],
+			],
+			[ // max of 3 takes over
+				30,
+				[ 'vip_search_queue_processor' => 3 ],
+			],
+		];
+	}
+
+	/**
+	 * @dataProvider configure_concurrency_data
+	 * @runInSeparateProcess
+	 * @preserveGlobalState disabled
+	 */
+	public function test_configure_concurrency( $cron_limit, $expected ) {
+		define( 'Automattic\WP\Cron_Control\JOB_CONCURRENCY_LIMIT', $cron_limit );
+
+		$result = $this->cron->configure_concurrency( [] );
+
+		$this->assertEquals( $expected, $result );
 	}
 }

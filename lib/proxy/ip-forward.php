@@ -19,7 +19,7 @@ function fix_remote_address( $user_ip, $remote_proxy_ip, $proxy_ip_whitelist ) {
 		return false;
 	}
 
-	require_once( __DIR__ . '/class-iputils.php' );
+	require_once __DIR__ . '/class-iputils.php';
 
 	// Verify that the remote proxy matches our whitelist
 	$is_whitelisted_proxy_ip = IpUtils::check_ip( $remote_proxy_ip, $proxy_ip_whitelist );
@@ -127,7 +127,7 @@ function fix_remote_address_from_ip_trail_with_verification_key( $ip_trail, $sub
  */
 function is_valid_ip( $ip ) {
 	if ( ! filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 )
-	     && ! filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) {
+		&& ! filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) {
 		return false;
 	}
 
@@ -140,7 +140,23 @@ function is_valid_ip( $ip ) {
  * @param string $ip The IP address to set the remote address to
  */
 function set_remote_address( $ip ) {
+	// phpcs:ignore WordPressVIPMinimum.Variables.ServerVariables.UserControlledHeaders, WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___SERVER__REMOTE_ADDR__
 	$_SERVER['REMOTE_ADDR'] = $ip;
+}
+
+if ( ! function_exists( __NAMESPACE__ . '\\_get_wpcom_vip_proxy_verification' ) ) {
+	/**
+	 * @access private
+	 * @internal
+	 * @return null|string 
+	 */
+	function _get_wpcom_vip_proxy_verification(): ?string {
+		if ( defined( 'WPCOM_VIP_PROXY_VERIFICATION' ) && ! empty( WPCOM_VIP_PROXY_VERIFICATION ) ) {
+			return (string) WPCOM_VIP_PROXY_VERIFICATION;
+		}
+
+		return null;
+	}
 }
 
 /**
@@ -149,12 +165,10 @@ function set_remote_address( $ip ) {
  * @return string The verification key if available, or a string of random numbers if no key is configured.
  */
 function get_proxy_verification_key() {
-	if ( defined( 'WPCOM_VIP_PROXY_VERIFICATION' ) && ! empty( WPCOM_VIP_PROXY_VERIFICATION ) ) {
-		return (string) WPCOM_VIP_PROXY_VERIFICATION;
-	}
+	$key = _get_wpcom_vip_proxy_verification();
 
 	// If not properly defined for some reason, return a string of random chars to avoid guessing the key.
-	return bin2hex( random_bytes( 32 ) );
+	return $key ?? bin2hex( random_bytes( 32 ) );
 }
 
 /**
@@ -188,6 +202,7 @@ function is_valid_proxy_verification_key( $submitted_verification_key ) {
  */
 function get_ip_addresses_from_ip_trail( $ip_trail ) {
 	// If X-Forwarded-For is not set, we're not dealing with a remote proxy or something in the proxy configs is doing it wrong.
+	// phpcs:ignore WordPressVIPMinimum.Variables.ServerVariables.UserControlledHeaders
 	if ( ! isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
 		return false;
 	}
@@ -210,6 +225,7 @@ function get_ip_addresses_from_ip_trail( $ip_trail ) {
 
 	// This should probably never happen, but validate just in case.
 	$remote_proxy_ip = $ip_addresses[1];
+	// phpcs:ignore WordPressVIPMinimum.Variables.ServerVariables.UserControlledHeaders
 	if ( $remote_proxy_ip !== $_SERVER['HTTP_X_FORWARDED_FOR'] ) {
 		return false;
 	}
